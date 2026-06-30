@@ -63,7 +63,9 @@ python -m http.server 8000
 
 ## Deploying
 
-Already on GitHub Pages from the `main` branch, root folder. Push to update:
+**GitHub Pages** (already configured): push to `main` — live at [lucidquestor.github.io/kollel-chatzos](https://lucidquestor.github.io/kollel-chatzos/).
+
+**Vercel:** connect the repo; no build command needed. Static files deploy from the root (`vercel.json` enables clean URLs like `/about` instead of `/about.html`).
 
 ```bash
 git push origin main
