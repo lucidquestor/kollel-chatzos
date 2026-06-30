@@ -27,17 +27,17 @@ kollel-chatzos/
 │   │   ├── main.css           # Theme & components
 │   │   └── utilities.css      # Layout helpers (no inline styles)
 │   ├── js/
-│   │   ├── layout.js          # Loads shared nav & footer
-│   │   └── main.js            # Language, nav, forms, scroll
+│   │   ├── lang-init.js       # Applies saved language before first paint
+│   │   └── main.js            # Language, nav, forms, scroll reveals
 │   ├── partials/
-│   │   ├── nav.html           # Single nav (consistent labels)
-│   │   └── footer.html        # Single footer
+│   │   ├── nav.html           # Nav template (sync with scripts/fix-blink.js)
+│   │   └── footer.html
 │   ├── images/
 │   └── icons/
 └── scripts/                   # Optional HTML maintenance scripts
 ```
 
-Nav and footer live in **one place** (`assets/partials/`) and are injected on every page — no more copy-paste drift between files.
+Nav and footer are inlined in each HTML page (fast, no fetch blink). Edit `assets/partials/` then run `node scripts/fix-blink.js` to sync all pages.
 
 ## Pages
 

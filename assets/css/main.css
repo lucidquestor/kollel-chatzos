@@ -6,6 +6,17 @@
 
 @import url('utilities.css');
 
+/* Early language (lang-init.js) — match body.lang-yi before main.js runs */
+html.pref-yi .en { display: none; }
+html.pref-yi .yi { display: revert; }
+html.pref-yi body {
+  direction: rtl;
+  font-family: 'Frank Ruhl Libre', 'Heebo', serif;
+  line-height: 1.9;
+}
+html.pref-yi .yi { font-size: 1.05em; }
+html.pref-en .yi { display: none; }
+
 :root {
   --bg:        #ffffff;
   --bg-soft:   #f7f3ea;
@@ -317,9 +328,20 @@ footer.foot {
 .foot a:hover { color: var(--gold-200); }
 .foot .copy { text-align: center; color: rgba(255,255,255,.6); font-size: .85rem; margin-top: 34px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.14); }
 
-/* ---------- reveal ---------- */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
-.reveal.in { opacity: 1; transform: none; }
+/* ---------- reveal (below-fold only — avoids page-load blink) ---------- */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+.reveal.reveal-pending {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.reveal-pending.in {
+  opacity: 1;
+  transform: none;
+}
 
 /* ---------- responsive ---------- */
 @media (max-width: 920px) {
