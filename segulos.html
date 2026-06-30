@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
-  <link rel="apple-touch-icon" href="assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kollel Chatzos" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png" />
   <meta name="theme-color" content="#16224c" />
   <title>Segulos & Maalos · Kollel Chatzos — The Power of Chatzos</title>
   <meta name="description" content="The segulos and maalos of rising at chatzos to learn Torah — from the Zohar Hakadosh, Kaf HaChaim, and Sefer HaMiddos: mazel, parnassah, refuah, chinuch, shmirah and more." />
@@ -13,7 +17,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body class="lang-en">
+<body class="lang-en" data-page="segulos">
+  <a class="skip-link" href="#main"><span class="en">Skip to content</span><span class="yi">גייט צום אינהאלט</span></a>
   <div class="stars"></div>
   <div class="glows" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
@@ -32,7 +37,7 @@
         <a href="segulos.html" class="active"><span class="en">Segulos</span><span class="yi">סגולות</span></a>
         <a href="partner.html"><span class="en">Partner</span><span class="yi">ווערט א שותף</span></a>
       </nav>
-      <div style="display:flex;align-items:center;gap:12px;">
+      <div class="nav-actions">
         <div class="lang-toggle" role="group" aria-label="Language">
           <button data-lang="en">EN</button>
           <button data-lang="yi">יידיש</button>
@@ -52,10 +57,10 @@
 
   <!-- SEGULOS GRID (from English flyer) -->
   <section class="wrap">
-    <div class="center reveal" style="margin-bottom:40px;">
+    <div class="center reveal section-header">
       <p class="eyebrow"><span class="en">From the Zohar Hakadosh</span><span class="yi">פונעם זוהר הקדוש</span></p>
       <h2 class="section-title"><span class="en">Segulas Chatzos</span><span class="yi">די השפעות פון חצות</span></h2>
-      <p style="color:var(--muted);max-width:620px;margin:8px auto 0;"><span class="en">The great zchus of learning at the time of chatzos, in the words of Rebbe Shimon bar Yochai.</span><span class="yi">די אומגעהויערע זכות פון לערנען אין די צייט פון חצות, לויט די ווערטער פונעם הייליגן תנא רבי שמעון בר יוחאי.</span></p>
+      <p class="section-lead"><span class="en">The great zchus of learning at the time of chatzos, in the words of Rebbe Shimon bar Yochai.</span><span class="yi">די אומגעהויערע זכות פון לערנען אין די צייט פון חצות, לויט די ווערטער פונעם הייליגן תנא רבי שמעון בר יוחאי.</span></p>
     </div>
     <div class="grid grid-4">
       <div class="card reveal">
@@ -103,7 +108,7 @@
 
   <!-- MAALOS LIST (from Yiddish liqut) -->
   <section class="wrap">
-    <div class="center reveal" style="margin-bottom:40px;">
+    <div class="center reveal section-header">
       <p class="eyebrow"><span class="en">A liqut of maalos</span><span class="yi">א זאמלונג פון סגולות</span></p>
       <h2 class="section-title"><span class="en">The one who rises at chatzos</span><span class="yi">פאר דעם וואס שטייט אויף חצות</span></h2>
     </div>
@@ -145,7 +150,7 @@
         <p><span class="en">One who constantly rises and mourns the tzaar haShechinah is zoche to the crown of Torah. <em>(Kav HaYashar 93)</em></span><span class="yi">דער וואס שטייט אויף כסדר און באוויינט דעם צער השכינה, איז זוכה צום כתר תורה. <em>(קו הישר פרק צ"ג)</em></span></p>
       </div>
     </div>
-    <p class="center" style="color:var(--muted);margin-top:22px;font-size:.92rem;"><span class="en">Selected from Likut b'Maalos u'Segulos Kimas Chatzos · Tikkun Chatzos HaMevuar</span><span class="yi">אויסגעקליבן פונעם "ליקוט סגולות ושערי חצות" · "תיקון חצות המבואר"</span></p>
+    <p class="center section-source"><span class="en">Selected from Likut b'Maalos u'Segulos Kimas Chatzos · Tikkun Chatzos HaMevuar</span><span class="yi">אויסגעקליבן פונעם "ליקוט סגולות ושערי חצות" · "תיקון חצות המבואר"</span></p>
   </section>
 
   <!-- CTA -->
@@ -153,7 +158,7 @@
     <div class="panel reveal">
       <h2><span class="en">Take a share in every one of these</span><span class="yi">נעמט א חלק אין די אלע ברכות</span></h2>
       <p><span class="en">When you partner with Kollel Chatzos, the lomdim have you in mind at the very hour these segulos are drawn down.</span><span class="yi">ווען איר ווערט א שותף מיט "כולל חצות", דערמאנען די תלמידי חכמים אייער נאמען פונקט אין יענע הייליגע שעה ווען די אלע השפעות און ברכות קומען אראפ.</span></p>
-      <div class="hero-cta" style="margin-top:30px;">
+      <div class="hero-cta cta-row">
         <a href="partner.html" class="btn btn-gold"><span class="en">Become a Partner ✦</span><span class="yi">✦ ווערט א שותף</span></a>
       </div>
     </div>
@@ -180,6 +185,7 @@
     </div>
     <p class="copy">© <span class="en">Kollel Chatzos · Nekudas Chatzos. All rights reserved.</span><span class="yi">כולל חצות · נקודת חצות. אלע רעכטן רעזערווירט.</span></p>
   </footer>
+  <script src="assets/js/layout.js"></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

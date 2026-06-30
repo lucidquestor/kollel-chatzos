@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
-  <link rel="apple-touch-icon" href="assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kollel Chatzos" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png" />
   <meta name="theme-color" content="#16224c" />
   <title>Become a Partner · Kollel Chatzos — Support the Limud</title>
   <meta name="description" content="Become a partner in Kollel Chatzos. Dedicate a night, sponsor the limud haTorah, and be remembered by the lomdim in the eis ratzon of chatzos." />
@@ -13,7 +17,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body class="lang-en">
+<body class="lang-en" data-page="partner">
+  <a class="skip-link" href="#main"><span class="en">Skip to content</span><span class="yi">גייט צום אינהאלט</span></a>
   <div class="stars"></div>
   <div class="glows" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
@@ -32,7 +37,7 @@
         <a href="segulos.html"><span class="en">Segulos</span><span class="yi">ברכות</span></a>
         <a href="partner.html" class="active"><span class="en">Partner</span><span class="yi">ווערט א שותף</span></a>
       </nav>
-      <div style="display:flex;align-items:center;gap:12px;">
+      <div class="nav-actions">
         <div class="lang-toggle" role="group" aria-label="Language">
           <button data-lang="en">EN</button>
           <button data-lang="yi">יידיש</button>
@@ -73,10 +78,10 @@
 
   <!-- DEDICATION TIERS -->
   <section class="wrap">
-    <div class="center reveal" style="margin-bottom:40px;">
+    <div class="center reveal section-header">
       <p class="eyebrow"><span class="en">Ways to partner</span><span class="yi">וועגן זיך צו באטייליגן</span></p>
       <h2 class="section-title"><span class="en">Dedicate the limud</span><span class="yi">ווידמעט דאס לערנען</span></h2>
-      <p style="color:var(--muted);max-width:600px;margin:8px auto 0;"><span class="en">Choose a partnership level, or dedicate the limud l'zecher or as a zechus for a refuah, shidduch, yeshuah or simcha.</span><span class="yi">קלויבט אויס א שותפות שטאפל, אדער געבט א נדבה "לעילוי נשמת" אדער אלס א "זכות" פאר א רפואה, א שידוך, א ישועה, אדער פאר א שמחה אין די משפחה.</span></p>
+      <p class="section-lead"><span class="en">Choose a partnership level, or dedicate the limud l'zecher or as a zechus for a refuah, shidduch, yeshuah or simcha.</span><span class="yi">קלויבט אויס א שותפות שטאפל, אדער געבט א נדבה "לעילוי נשמת" אדער אלס א "זכות" פאר א רפואה, א שידוך, א ישועה, אדער פאר א שמחה אין די משפחה.</span></p>
     </div>
     <div class="grid grid-4">
       <div class="card tier reveal">
@@ -121,9 +126,9 @@
         <a href="https://www.firstaccept.net/HANETZACH?amount=720" target="_blank" rel="noopener" class="btn btn-ghost"><span class="en">Donate $720</span><span class="yi">געבט $720</span></a>
       </div>
     </div>
-    <div class="center" style="margin-top:28px;">
-      <p style="color:var(--ink-soft);margin-bottom:14px;"><span class="en">Or give any amount — every dollar partners you with the Kollel:</span><span class="yi">אדער שטיצט מיט סיי וועלכע סכום — יעדער דאלאר פארבינדט אייך מיטן כולל:</span></p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+    <div class="center amount-section">
+      <p class="amount-row-intro"><span class="en">Or give any amount — every dollar partners you with the Kollel:</span><span class="yi">אדער שטיצט מיט סיי וועלכע סכום — יעדער דאלאר פארבינדט אייך מיטן כולל:</span></p>
+      <div class="amount-row">
         <a href="https://www.firstaccept.net/HANETZACH?amount=36" target="_blank" rel="noopener" class="btn btn-ghost">$36</a>
         <a href="https://www.firstaccept.net/HANETZACH?amount=72" target="_blank" rel="noopener" class="btn btn-ghost">$72</a>
         <a href="https://www.firstaccept.net/HANETZACH?amount=180" target="_blank" rel="noopener" class="btn btn-ghost">$180</a>
@@ -137,40 +142,40 @@
 
   <!-- MATBIA / PLEDJER + TAX ID -->
   <section class="wrap">
-    <div class="center reveal" style="margin-bottom:34px;">
+    <div class="center reveal section-header">
       <p class="eyebrow"><span class="en">More ways to give</span><span class="yi">נאך וועגן צו געבן</span></p>
       <h2 class="section-title"><span class="en">Pay with Matbia or Pledger</span><span class="yi">באצאלט מיט מטבע אדער פלעדזשער</span></h2>
-      <p style="color:var(--muted);max-width:640px;margin:8px auto 0;"><span class="en">Already have a Matbia or Pledger account? Add Kollel Chatzos with our Tax ID and give in seconds.</span><span class="yi">האט איר שוין א מטבע אדער פלעדזשער אקאונט? לייגט צו "כולל חצות" מיט אונזער טעקס נומער און געבט אין סעקונדעס.</span></p>
+      <p class="section-lead"><span class="en">Already have a Matbia or Pledger account? Add Kollel Chatzos with our Tax ID and give in seconds.</span><span class="yi">האט איר שוין א מטבע אדער פלעדזשער אקאונט? לייגט צו "כולל חצות" מיט אונזער טעקס נומער און געבט אין סעקונדעס.</span></p>
     </div>
 
-    <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-bottom:30px;">
+    <div class="partner-logos">
       <!-- Matbia -->
-      <div class="reveal" style="display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 40px;box-shadow:var(--shadow);min-width:236px;min-height:88px;">
-        <img src="assets/images/matbia-logo.svg" alt="Matbia" style="height:30px;width:auto;display:block;" loading="lazy">
+      <div class="reveal logo-card logo-card--matbia">
+        <img src="assets/images/matbia-logo.svg" alt="Matbia"  loading="lazy">
       </div>
       <!-- Pledger -->
-      <div class="reveal" style="display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 40px;box-shadow:var(--shadow);min-width:236px;min-height:88px;">
-        <img src="assets/images/pledger-logo.svg" alt="Pledger" style="height:40px;width:auto;display:block;" loading="lazy">
+      <div class="reveal logo-card logo-card--pledger">
+        <img src="assets/images/pledger-logo.svg" alt="Pledger"  loading="lazy">
       </div>
     </div>
 
-    <div class="reveal" style="max-width:580px;margin:0 auto;background:var(--navy);color:#fff;border-radius:18px;padding:30px 32px;text-align:center;box-shadow:var(--shadow-lg);">
-      <p style="color:var(--gold-200);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;"><span class="en">Our Tax ID (EIN)</span><span class="yi">אונזער טעקס נומער (EIN)</span></p>
-      <div dir="ltr" style="font-size:2.3rem;font-weight:800;letter-spacing:.1em;color:#fff;font-family:'Inter',sans-serif;">881313826</div>
-      <p style="color:rgba(255,255,255,.72);font-size:.97rem;margin-top:12px;max-width:440px;margin-left:auto;margin-right:auto;"><span class="en">Add this number in your Matbia or Pledger account to donate to Kollel Chatzos.</span><span class="yi">לייגט צו דעם נומער אין אייער מטבע אדער פלעדזשער אקאונט צו געבן פאר כולל חצות.</span></p>
-      <button type="button" class="btn btn-gold" style="margin-top:18px;cursor:pointer;border:none;" onclick="if(navigator.clipboard){navigator.clipboard.writeText('881313826');var d=this.querySelector('.copy-label'),e=this.querySelector('.copy-done');if(d&&e){d.style.display='none';e.style.display='inline';var t=this;setTimeout(function(){d.style.display='inline';e.style.display='none';},2000);}}">
+    <div class="reveal tax-id-card">
+      <p class="tax-label"><span class="en">Our Tax ID (EIN)</span><span class="yi">אונזער טעקס נומער (EIN)</span></p>
+      <div class="tax-number" dir="ltr">881313826</div>
+      <p class="tax-note"><span class="en">Add this number in your Matbia or Pledger account to donate to Kollel Chatzos.</span><span class="yi">לייגט צו דעם נומער אין אייער מטבע אדער פלעדזשער אקאונט צו געבן פאר כולל חצות.</span></p>
+      <button type="button" class="btn btn-gold" id="copy-tax-id">
         <span class="copy-label"><span class="en">Copy Tax ID</span><span class="yi">קאפיר נומער</span></span>
-        <span class="copy-done" style="display:none;"><span class="en">Copied ✓</span><span class="yi">קאפירט ✓</span></span>
+        <span class="copy-done"><span class="en">Copied ✓</span><span class="yi">קאפירט ✓</span></span>
       </button>
     </div>
   </section>
 
   <!-- SEGULAH OCCASIONS -->
   <section class="wrap">
-    <div class="center reveal" style="margin-bottom:40px;">
+    <div class="center reveal section-header">
       <p class="eyebrow"><span class="en">Dedicate for a zechus</span><span class="yi">מקיים זיין א זכות</span></p>
       <h2 class="section-title"><span class="en">A name at the eis ratzon</span><span class="yi">א נאמען אין די עת רצון פון תפילה</span></h2>
-      <p style="color:var(--muted);max-width:620px;margin:8px auto 0;"><span class="en">Tell us what to daven for, and the lomdim will have it in mind in the holiest hours of the night.</span><span class="yi">זאגט אונז וואס איר דארפט, און די תלמידי חכמים וועלן מתפלל זיין פאר אייך אין די הייליגסטע שעות פון די נאכט.</span></p>
+      <p class="section-lead"><span class="en">Tell us what to daven for, and the lomdim will have it in mind in the holiest hours of the night.</span><span class="yi">זאגט אונז וואס איר דארפט, און די תלמידי חכמים וועלן מתפלל זיין פאר אייך אין די הייליגסטע שעות פון די נאכט.</span></p>
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5"/><path d="M15.5 5.3a5 5 0 0 1 0 13.4"/><path d="M7 7.5h2M7 10.5h2"/></svg></div><h3><span class="en">Parnassah</span><span class="yi">פרנסה</span></h3><p><span class="en">For livelihood, success and relief from debt.</span><span class="yi">פאר הרחבת הדעת, הצלחה, און צו ווערן באפרייט פון חובות.</span></p></div>
@@ -184,11 +189,11 @@
 
   <!-- SIMCHA DEDICATIONS -->
   <section class="wrap">
-    <div class="panel reveal center" style="padding:48px 40px;">
+    <div class="panel reveal center panel-simcha">
       <p class="eyebrow"><span class="en">Mark a simcha</span><span class="yi">פאראייביגט א שמחה</span></p>
-      <h2 class="section-title" style="font-size:2.2rem;"><span class="en">Dedicate the night of your simcha</span><span class="yi">געבט איבער די נאכט פאר אייער שמחה</span></h2>
-      <p style="color:var(--muted);max-width:680px;margin:14px auto 18px;"><span class="en">Bring the zechus of a full night of Torah to your simcha — a wedding, bar mitzvah, vachnacht, upsherin, birthday or any milestone.</span><span class="yi">ברענגט דעם זכות פון א גאנצע נאכט לערנען תורה פאר אייער שמחה — א חתונה, בר מצוה, וואכנאכט, אפשערן, געבורטסטאג, אדער סיי וועלכע וויכטיגע טאג.</span></p>
-      <p class="gold" style="font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;">
+      <h2 class="section-title section-title-lg"><span class="en">Dedicate the night of your simcha</span><span class="yi">געבט איבער די נאכט פאר אייער שמחה</span></h2>
+      <p class="section-lead section-lead--md"><span class="en">Bring the zechus of a full night of Torah to your simcha — a wedding, bar mitzvah, vachnacht, upsherin, birthday or any milestone.</span><span class="yi">ברענגט דעם זכות פון א גאנצע נאכט לערנען תורה פאר אייער שמחה — א חתונה, בר מצוה, וואכנאכט, אפשערן, געבורטסטאג, אדער סיי וועלכע וויכטיגע טאג.</span></p>
+      <p class="gold simcha-tags">
         <span class="en">Wedding · Bar Mitzvah · Vachnacht · Upsherin · Birthday · Yahrtzeit</span>
         <span class="yi">חתונה · בר מצוה · וואכנאכט · אפשערן · געבורטסטאג · יארצייט</span>
       </p>
@@ -201,8 +206,8 @@
       <div class="contact-grid">
         <div>
           <p class="eyebrow"><span class="en">Get in touch</span><span class="yi">פארבינדט זיך מיט אונז</span></p>
-          <h2 class="section-title" style="font-size:2.2rem;"><span class="en">Partner with the Kollel</span><span class="yi">ווערט א שותף מיטן כולל</span></h2>
-          <p style="color:var(--muted);margin:10px 0 24px;"><span class="en">Leave your details and a member of the hanhalah will reach out to set up your partnership or dedication.</span><span class="yi">לאזט איבער אייערע דעטאלן, און איינער פון די הנהלה וועט זיך פארבינדן מיט אייך צו מסדר זיין אייער שותפות אדער הקדשה.</span></p>
+          <h2 class="section-title section-title-lg"><span class="en">Partner with the Kollel</span><span class="yi">ווערט א שותף מיטן כולל</span></h2>
+          <p class="section-lead section-lead--contact"><span class="en">Leave your details and a member of the hanhalah will reach out to set up your partnership or dedication.</span><span class="yi">לאזט איבער אייערע דעטאלן, און איינער פון די הנהלה וועט זיך פארבינדן מיט אייך צו מסדר זיין אייער שותפות אדער הקדשה.</span></p>
 
           <div class="info-line">
             <span class="ic">✆</span>
@@ -247,8 +252,8 @@
             <label><span class="en">A note or dedication</span><span class="yi">לייגט צו א נאטיץ אדער הקדשה</span></label>
             <textarea name="note" rows="3"></textarea>
           </div>
-          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;"><span class="en">Send · be remembered tonight ✦</span><span class="yi">שיק ארויס · ווערט דערמאנט היינט נאכט ✦</span></button>
-          <p id="form-note" style="display:none;color:var(--gold-200);margin-top:14px;text-align:center;"><span class="en">Thank you! The hanhalah will be in touch. Tizku l'mitzvos.</span><span class="yi">א דאנק! די הנהלה וועט זיך פארבינדן. תזכו למצוות.</span></p>
+          <button type="submit" class="btn btn-gold btn-block"><span class="en">Send · be remembered tonight ✦</span><span class="yi">שיק ארויס · ווערט דערמאנט היינט נאכט ✦</span></button>
+          <p id="form-note" class="form-note" id="form-note"><span class="en">Thank you! The hanhalah will be in touch. Tizku l'mitzvos.</span><span class="yi">א דאנק! די הנהלה וועט זיך פארבינדן. תזכו למצוות.</span></p>
         </form>
       </div>
     </div>
@@ -275,6 +280,7 @@
     </div>
     <p class="copy">© <span class="en">Kollel Chatzos · Nekudas Chatzos. All rights reserved.</span><span class="yi">כולל חצות · נקודת חצות. אלע רעכטן רעזערווירט.</span></p>
   </footer>
+  <script src="assets/js/layout.js"></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

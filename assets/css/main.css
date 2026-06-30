@@ -4,6 +4,8 @@
    bilingual (English / Yiddish)
    ========================================================= */
 
+@import url('utilities.css');
+
 :root {
   --bg:        #ffffff;
   --bg-soft:   #f7f3ea;
@@ -542,3 +544,52 @@ body.lang-yi .field label{ font-size: 1.05rem; }
 
 /* ---- 16. Emphasis weight so <strong> reads clearly at base weight 400 ---- */
 .prose p strong, p strong{ font-weight: 600; }
+
+/* =========================================================
+   Accessibility & interaction polish
+   ========================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--gold-200);
+  outline-offset: 3px;
+}
+.btn:focus-visible,
+.lang-toggle button:focus-visible,
+.nav-links a:focus-visible,
+.qg-pill:focus-visible {
+  outline: 2px solid var(--gold-200);
+  outline-offset: 3px;
+}
+
+.nav-links a.active {
+  color: var(--gold-deep);
+  background: var(--gold-soft);
+  font-weight: 700;
+}
+
+.foot-cta {
+  font-weight: 600;
+  color: var(--gold-200) !important;
+}
+.foot-cta:hover { color: #fff !important; }
+
+.card blockquote,
+.card .testimonial-quote {
+  font-size: 1.12rem !important;
+  line-height: 1.7;
+  color: var(--ink) !important;
+}
+body.lang-yi .card .testimonial-quote {
+  font-size: 1.2rem !important;
+  line-height: 1.9;
+}
+
+.cta-band .btn-ghost {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+.cta-band .btn-ghost:hover {
+  background: #fff;
+  color: var(--navy);
+  border-color: #fff;
+}

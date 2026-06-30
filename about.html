@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
-  <link rel="apple-touch-icon" href="assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kollel Chatzos" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png" />
   <meta name="theme-color" content="#16224c" />
   <title>The Kollel · Kollel Chatzos — What We Do</title>
   <meta name="description" content="What Kollel Chatzos does — the seder hakollel, learning from chatzos until alos hashachar, davening k'vasikin, and a 24-hour cycle of Torah safeguarding Brooklyn." />
@@ -13,7 +17,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body class="lang-en">
+<body class="lang-en" data-page="about">
+  <a class="skip-link" href="#main"><span class="en">Skip to content</span><span class="yi">גייט צום אינהאלט</span></a>
   <div class="stars"></div>
   <div class="glows" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
@@ -32,7 +37,7 @@
         <a href="segulos.html"><span class="en">Segulos</span><span class="yi">ברכות</span></a>
         <a href="partner.html"><span class="en">Partner</span><span class="yi">ווערט א שותף</span></a>
       </nav>
-      <div style="display:flex;align-items:center;gap:12px;">
+      <div class="nav-actions">
         <div class="lang-toggle" role="group" aria-label="Language">
           <button data-lang="en">EN</button>
           <button data-lang="yi">יידיש</button>
@@ -66,7 +71,7 @@
           <p class="tr"><span class="en">"One who rises at chatzos to toil in Torah — the Holy One praises him: 'This is My child.'"</span><span class="yi">"ווער עס שטייט אויף ביי חצות זיך מגיגע צו זיין באורייתא – דער הייליגער באשעפער אליין רימט אים אויס: 'דאס איז מיין קינד'."</span></p>
           <p class="src">תיקון חצות · מספר פני יהושע</p>
         </div>
-        <div class="quote" style="margin-top:26px;">
+        <div class="quote quote-spaced">
           <p class="heb">דָּוִד הַמֶּלֶךְ ע"ה הָיָה קָם בַּחֲצוֹת הַלַּיְלָה לְהוֹדוֹת לַה'</p>
           <p class="tr"><span class="en">From the time of Dovid HaMelech, chatzos has been the hour of the righteous.</span><span class="yi">נאך פון די צייטן פון דוד המלך ע"ה, איז חצות שטענדיג געווען די ספעציעלע שעה פאר די ערליכע אידן.</span></p>
         </div>
@@ -76,10 +81,10 @@
 
   <!-- WHAT IT GIVES -->
   <section class="wrap">
-    <div class="center reveal" style="margin-bottom:40px;">
+    <div class="center reveal section-header">
       <p class="eyebrow"><span class="en">For the whole city</span><span class="yi">פאר די גאנצע שטאט</span></p>
       <h2 class="section-title"><span class="en">A 24-hour cycle of Torah</span><span class="yi">א 24-שעה'דיגע קייט פון תורה</span></h2>
-      <p style="color:var(--muted);max-width:680px;margin:10px auto 0;"><span class="en">Because of the time difference, the deep night here overlaps with the hours the kollelim in Eretz Yisroel have gone to rest. As they finish, the lomdim here begin — so somewhere in the world, Torah is being learned at every hour of the night, without a break.</span><span class="yi">צוליב דעם חילוק אין די צייטן, פונקט ווען די כוללים אין ארץ ישראל ענדיגן זייערע סדרים און גייען זיך אפרוען, הייבן אן די תלמידי חכמים דא אין אמעריקע לערנען – אזוי ארום ווערט זיכער געמאכט אז איבער די גאנצע וועלט ווערט תורה געלערנט כסדר אן קיין שום הפסק, יעדע שעה פון די נאכט.</span></p>
+      <p class="section-lead section-lead--md"><span class="en">Because of the time difference, the deep night here overlaps with the hours the kollelim in Eretz Yisroel have gone to rest. As they finish, the lomdim here begin — so somewhere in the world, Torah is being learned at every hour of the night, without a break.</span><span class="yi">צוליב דעם חילוק אין די צייטן, פונקט ווען די כוללים אין ארץ ישראל ענדיגן זייערע סדרים און גייען זיך אפרוען, הייבן אן די תלמידי חכמים דא אין אמעריקע לערנען – אזוי ארום ווערט זיכער געמאכט אז איבער די גאנצע וועלט ווערט תורה געלערנט כסדר אן קיין שום הפסק, יעדע שעה פון די נאכט.</span></p>
     </div>
     <div class="grid grid-3">
       <div class="card reveal">
@@ -102,10 +107,10 @@
 
   <!-- SEDER HAKOLLEL -->
   <section class="wrap">
-    <div class="center reveal" style="margin-bottom:40px;">
+    <div class="center reveal section-header">
       <p class="eyebrow"><span class="en">Seder HaKollel</span><span class="yi">סדר הכולל</span></p>
       <h2 class="section-title"><span class="en">A night run with order and kedusha</span><span class="yi">א מסודר'דיגע און הייליגע נאכט סדר</span></h2>
-      <p style="color:var(--muted);max-width:620px;margin:8px auto 0;"><span class="en">Every member commits to a full zman. The seder is exacting — because the avodah is precious.</span><span class="yi">יעדער מיטגליד נעמט זיך אונטער א פולן סדר הלימוד. דער זמן איז זייער פונקטליך – ווייל די הייליגע ארבעט איז אומשאצבאר.</span></p>
+      <p class="section-lead"><span class="en">Every member commits to a full zman. The seder is exacting — because the avodah is precious.</span><span class="yi">יעדער מיטגליד נעמט זיך אונטער א פולן סדר הלימוד. דער זמן איז זייער פונקטליך – ווייל די הייליגע ארבעט איז אומשאצבאר.</span></p>
     </div>
     <div class="tline reveal">
       <div class="row">
@@ -145,7 +150,7 @@
       <p class="eyebrow"><span class="en">The bigger picture</span><span class="yi">דער גרעסערער בילד</span></p>
       <h2><span class="en">Every geulah begins at chatzos</span><span class="yi">יעדע גאולה הייבט זיך אן ביי חצות</span></h2>
       <p><span class="en">The first geulah from Mitzrayim occurred specifically at chatzos. So too, the final geulah we long for will come in the merit of the yirei Hashem who awaken each night at chatzos.</span><span class="yi">די ערשטע גאולה פון מצרים האט פאסירט פונקטליך ביי חצות הלילה. אזוי אויך די ענדגילטיגע גאולה וואס מיר ווארטן שוין אזוי שטארק דערויף, וועט אי"ה קומען אינעם זכות פון די יראי השם וואס שטייען אויף יעדע נאכט ביי חצות צו לערנען און דאווענען.</span></p>
-      <div class="hero-cta" style="margin-top:30px;">
+      <div class="hero-cta cta-row">
         <a href="partner.html" class="btn btn-gold"><span class="en">Become a Partner ✦</span><span class="yi">✦ ווערט א שותף</span></a>
       </div>
     </div>
@@ -172,6 +177,7 @@
     </div>
     <p class="copy">© <span class="en">Kollel Chatzos · Nekudas Chatzos. All rights reserved.</span><span class="yi">כל הזכויות שמורות לכולל חצות · נקודת חצות.</span></p>
   </footer>
+  <script src="assets/js/layout.js"></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
