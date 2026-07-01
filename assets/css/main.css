@@ -131,8 +131,6 @@ section { position: relative; z-index: 2; }
 section.wrap { padding-block: var(--section-y); }
 .hero + section.wrap,
 .page-hero + section.wrap { padding-top: var(--section-y-tight); }
-.hero + section.wrap.section-quickgive,
-.page-hero + section.wrap.section-quickgive { padding-top: 0; }
 .center { text-align: center; }
 
 /* ---------- nav ---------- */
@@ -193,7 +191,7 @@ body.lang-yi .nav-links a { font-family: var(--font-hebrew); font-size: var(--te
 .hero {
   position: relative; display: flex; align-items: center; justify-content: center;
   min-height: clamp(340px, 48vh, 480px);
-  padding: clamp(64px, 8vw, 96px) 0 clamp(72px, 9vw, 100px);
+  padding: clamp(64px, 8vw, 96px) 0 clamp(56px, 7vw, 80px);
   text-align: center;
   background: var(--hero-overlay), url("../images/hero-learning.jpg") center/cover no-repeat;
 }

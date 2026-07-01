@@ -43,16 +43,16 @@
 .section-lead--contact { margin: 12px 0 28px; max-width: none; }
 body.lang-yi .section-lead { font-size: 1.0625rem; line-height: 1.8; }
 
-/* Hero → quickgive float → stats band */
+/* Hero → quickgive → stats band */
 section.wrap.section-quickgive {
-  padding-top: 0;
-  padding-bottom: clamp(28px, 3vw, 40px);
-  margin-top: clamp(-48px, -4.5vw, -28px);
+  padding-top: clamp(32px, 4vw, 48px);
+  padding-bottom: clamp(40px, 4.5vw, 56px);
+  margin-top: 0;
   position: relative;
   z-index: 5;
 }
 section.wrap.section-stats-gap {
-  padding-top: clamp(28px, 3.5vw, 44px);
+  padding-top: clamp(20px, 2.5vw, 32px);
   padding-bottom: clamp(56px, 6vw, 80px);
   margin-top: 0;
 }
