@@ -568,7 +568,12 @@ body.lang-yi .foot a, body.lang-yi .foot p { font-size: var(--text-base); line-h
   transition: 0.18s;
 }
 body.lang-yi .qg-pill { font-family: var(--font-hebrew); font-size: var(--text-base); }
-.qg-pill:hover { transform: none; background: rgba(75, 49, 35, 0.05); border-color: var(--line); color: var(--brown); }
+.qg-pill:hover {
+  transform: none;
+  background: var(--brown-deep);
+  border-color: var(--brown-deep);
+  color: var(--ivory);
+}
 .quickgive .qg-sub { font-size: var(--text-sm); line-height: 1.55; }
 body.lang-yi .quickgive .qg-sub { font-size: var(--text-base); line-height: 1.75; }
 
