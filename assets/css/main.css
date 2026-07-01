@@ -119,18 +119,16 @@ header.nav {
   max-width: var(--maxw); margin: 0 auto; padding: 13px 24px;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
 }
-.brand { display: flex; align-items: center; gap: 12px; }
-.brand .seal {
-  width: 42px; height: 42px; border-radius: 50%;
-  display: grid; place-items: center;
-  background: radial-gradient(circle at 35% 30%, var(--navy-700), var(--navy) 70%);
-  color: var(--gold-200); font-family: 'Cormorant Garamond', serif;
-  font-weight: 700; font-size: 1.2rem; box-shadow: 0 4px 14px rgba(22,34,76,.25);
-  border: 1px solid var(--gold-soft);
+.brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.brand-logo {
+  display: block;
+  height: 48px;
+  width: auto;
+  object-fit: contain;
 }
-.brand-text { display: flex; flex-direction: column; line-height: 1.05; }
-.brand-text .brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--navy); font-weight: 700; }
-.brand-text .brand-sub { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+@media (max-width: 620px) {
+  .brand-logo { height: 40px; }
+}
 
 .nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-links a {
@@ -138,7 +136,7 @@ header.nav {
   padding: 6px 12px; border-radius: 4px; transition: .15s;
   font-family: 'Inter', sans-serif;
 }
-body.lang-yi .nav-links a, body.lang-yi .brand-sub { font-family: 'Frank Ruhl Libre', serif; }
+body.lang-yi .nav-links a { font-family: 'Frank Ruhl Libre', serif; }
 .nav-links a:hover { color: var(--navy); background: rgba(22,34,76,.04); }
 .nav-links a.active { color: var(--navy); background: rgba(22,34,76,.06); font-weight: 600; }
 
@@ -460,9 +458,6 @@ footer.foot {
 section.wrap:nth-of-type(even)::before {
   background: #f4f4f6;
 }
-
-.brand-text .brand-name { font-size: 1.1rem; }
-.brand .seal { width: 36px; height: 36px; font-size: 1rem; box-shadow: none; }
 
 .marquee { direction: ltr; overflow: hidden; border-block: 1px solid var(--line); position: relative; z-index: 2; padding-block: 2px; }
 .marquee__track { display: flex; width: max-content; animation: kcScroll 42s linear infinite; }
