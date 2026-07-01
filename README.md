@@ -50,7 +50,7 @@ Nav and footer are inlined in each HTML page (fast, no fetch blink). Edit `asset
 
 ## Language toggle
 
-The **EN / יידיש** toggle switches all content and RTL layout for Yiddish. Preference is saved in `localStorage`.
+The **EN / א** toggle switches all content and RTL layout for Yiddish. Preference is saved in `localStorage`.
 
 ## Running locally
 

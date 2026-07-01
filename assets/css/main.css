@@ -147,8 +147,14 @@ body.lang-yi .nav-links a { font-family: 'Frank Ruhl Libre', serif; }
 }
 .lang-toggle button {
   cursor: pointer; border: 0; background: transparent; color: var(--ink-soft);
-  font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 3px;
+  font-size: 0.75rem; font-weight: 600; padding: 4px 0; border-radius: 3px;
   font-family: 'Inter', sans-serif; transition: .15s;
+  min-width: 2rem; text-align: center;
+}
+.lang-toggle button[data-lang="yi"] {
+  font-family: 'Frank Ruhl Libre', 'Heebo', serif;
+  font-size: 0.95rem;
+  line-height: 1;
 }
 .lang-toggle button.on { background: var(--navy); color: #fff; }
 
