@@ -213,6 +213,7 @@ body.lang-yi .btn { font-family: 'Frank Ruhl Libre', serif; }
   border: 1px solid var(--line);
   background: var(--card);
   box-shadow: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
 }
 .stat .num {
   flex: 0 0 auto;
@@ -260,12 +261,12 @@ section.wrap > .panel:first-child { margin-top: 0; }
   border-radius: var(--radius);
   padding: 20px 22px;
   box-shadow: none;
-  transition: border-color .15s ease;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
 }
-.card:hover { transform: none; border-color: rgba(22, 34, 76, 0.22); box-shadow: none; }
 .card .ic {
   width: 38px; height: 38px; border-radius: 4px; display: grid; place-items: center;
   background: rgba(22, 34, 76, 0.06); color: var(--navy); font-size: 1.2rem; margin-bottom: 12px;
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 .card h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--navy); line-height: 1.3; font-weight: 600; }
 .card p { color: var(--ink-soft); flex: 1 1 auto; margin-bottom: 0; font-size: 0.875rem; line-height: 1.6; }
@@ -298,6 +299,7 @@ body.lang-yi .quote { padding: 6px 24px 6px 0; }
   display: flex; gap: 14px; align-items: flex-start;
   padding: 16px 18px; border-radius: var(--radius); border: 1px solid var(--line);
   background: var(--card); box-shadow: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
 }
 .segula .tag {
   flex: 0 0 auto; font-family: 'Frank Ruhl Libre', serif; color: var(--gold-deep);
@@ -660,8 +662,33 @@ body.lang-yi .eyebrow { font-size: 0.75rem !important; }
 .section-lead { font-size: 0.9375rem !important; }
 .tline .when { font-size: 1.25rem; }
 .tier li { font-size: 0.875rem !important; padding: 7px 0 !important; }
-.logo-card { box-shadow: none; padding: 20px 28px; min-height: 72px; }
-.logo-card:hover { transform: none; box-shadow: none; }
+.logo-card { box-shadow: none; padding: 20px 28px; min-height: 72px; transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
 .tax-id-card { padding: 24px 28px; border-radius: var(--radius); }
 .tax-id-card .tax-number { font-size: 1.75rem; }
 .reveal.reveal-pending { transform: translateY(8px); }
+
+/* ---- subtle hover on card-like blocks (site-wide) ---- */
+.card:hover,
+.stat:hover,
+.segula:hover,
+.logo-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(22, 34, 76, 0.22);
+  box-shadow: 0 4px 14px rgba(22, 34, 76, 0.07);
+}
+.card:hover .ic {
+  background: var(--gold-soft);
+  color: var(--gold-deep);
+}
+.tier.feat:hover {
+  box-shadow: 0 0 0 1px var(--gold), 0 6px 18px rgba(22, 34, 76, 0.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card:hover,
+  .stat:hover,
+  .segula:hover,
+  .logo-card:hover,
+  .tier.feat:hover {
+    transform: none;
+  }
+}
