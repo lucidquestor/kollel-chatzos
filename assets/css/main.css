@@ -1,6 +1,6 @@
 /* =========================================================
    Kollel Chatzos — Nekudas Chatzos
-   LIGHT theme · white background · navy + gold accents
+   LIGHT theme · warm white · brown + gold (matches logo)
    bilingual (English / Yiddish)
    ========================================================= */
 
@@ -18,26 +18,32 @@ html.pref-yi .yi { font-size: 1.05em; }
 html.pref-en .yi { display: none; }
 
 :root {
-  --bg:        #fafafa;
-  --bg-soft:   #f3f3f5;
-  --bg-cream:  #f7f7f9;
-  --ink:       #1a2545;
-  --ink-soft:  #4a5168;
-  --navy:      #16224c;
-  --navy-700:  #243a78;
-  --gold:      #8a6820;
-  --gold-deep: #735618;
-  --gold-200:  #9a7424;
-  --gold-soft: rgba(138, 104, 32, 0.08);
-  --line:      rgba(22, 34, 76, 0.14);
-  --card:      #ffffff;
+  --brown:       #4a3420;
+  --brown-deep:  #3d2a18;
+  --brown-700:   #5c4228;
+  --ink:         #3d2a18;
+  --ink-soft:    #645647;
+  --muted:       #645647;
+  --text:        var(--ink);
+  --navy:        var(--brown);
+  --navy-700:    var(--brown-700);
+  --gold:        #9a7424;
+  --gold-deep:   #7d5e1a;
+  --gold-200:    #b08830;
+  --gold-soft:   rgba(154, 116, 36, 0.1);
+  --bg:          #faf8f5;
+  --bg-soft:     #f3ede3;
+  --bg-cream:    #f7f2e8;
+  --line:        rgba(74, 52, 32, 0.14);
+  --card:        #ffffff;
   --maxw: 1080px;
-  --shadow: 0 1px 2px rgba(22, 34, 76, 0.05);
-  --shadow-lg: 0 2px 8px rgba(22, 34, 76, 0.07);
+  --shadow: 0 1px 2px rgba(74, 52, 32, 0.06);
+  --shadow-lg: 0 2px 8px rgba(74, 52, 32, 0.08);
   --radius: 6px;
   --section-y: clamp(48px, 6vw, 72px);
   --section-y-tight: clamp(32px, 4vw, 48px);
   --grid-gap: clamp(16px, 1.8vw, 22px);
+  --hero-overlay: linear-gradient(180deg, rgba(61, 42, 24, 0.88), rgba(74, 52, 32, 0.78));
   scroll-behavior: smooth;
 }
 
@@ -73,7 +79,7 @@ h1, h2, h3, .display {
   font-family: 'Cormorant Garamond', 'Frank Ruhl Libre', serif;
   font-weight: 600;
   line-height: 1.15;
-  color: var(--navy);
+  color: var(--brown);
 }
 h2.section-title {
   font-size: clamp(1.45rem, 2.6vw, 1.85rem);
@@ -113,7 +119,7 @@ header.nav {
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid var(--line);
-  box-shadow: 0 2px 18px rgba(22,34,76,0.04);
+  box-shadow: 0 2px 18px rgba(74,52,32,0.04);
 }
 .nav-inner {
   max-width: var(--maxw); margin: 0 auto; padding: 13px 24px;
@@ -137,8 +143,8 @@ header.nav {
   font-family: 'Inter', sans-serif;
 }
 body.lang-yi .nav-links a { font-family: 'Frank Ruhl Libre', serif; }
-.nav-links a:hover { color: var(--navy); background: rgba(22,34,76,.04); }
-.nav-links a.active { color: var(--navy); background: rgba(22,34,76,.06); font-weight: 600; }
+.nav-links a:hover { color: var(--brown); background: rgba(74,52,32,.04); }
+.nav-links a.active { color: var(--brown); background: rgba(74,52,32,.06); font-weight: 600; }
 
 .lang-toggle {
   display: inline-flex; align-items: center; gap: 4px;
@@ -156,10 +162,10 @@ body.lang-yi .nav-links a { font-family: 'Frank Ruhl Libre', serif; }
   font-size: 0.95rem;
   line-height: 1;
 }
-.lang-toggle button.on { background: var(--navy); color: #fff; }
+.lang-toggle button.on { background: var(--brown); color: #fff; }
 
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; }
-.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 5px 0; transition: .2s; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--brown); margin: 5px 0; transition: .2s; }
 
 /* ---------- hero ---------- */
 .hero {
@@ -167,7 +173,7 @@ body.lang-yi .nav-links a { font-family: 'Frank Ruhl Libre', serif; }
   min-height: clamp(340px, 48vh, 480px);
   padding: clamp(64px, 8vw, 96px) 0 clamp(72px, 9vw, 100px);
   text-align: center;
-  background: linear-gradient(180deg, rgba(13,19,44,.82), rgba(13,19,44,.72)), url("../images/hero-learning.jpg") center/cover no-repeat;
+  background: var(--hero-overlay), url("../images/hero-learning.jpg") center/cover no-repeat;
 }
 .hero .moon { display: none; }
 .hero h1 {
@@ -197,8 +203,8 @@ body.lang-yi .btn { font-family: 'Frank Ruhl Libre', serif; }
   color: #fff; box-shadow: none;
 }
 .btn-gold:hover { background: var(--gold); transform: none; box-shadow: none; }
-.btn-ghost { border-color: var(--navy); color: var(--navy); background: transparent; }
-.btn-ghost:hover { background: var(--navy); color: #fff; transform: none; }
+.btn-ghost { border-color: var(--brown); color: var(--brown); background: transparent; }
+.btn-ghost:hover { background: var(--brown); color: #fff; transform: none; }
 
 /* ---------- stat band ---------- */
 .stats {
@@ -271,10 +277,10 @@ section.wrap > .panel:first-child { margin-top: 0; }
 }
 .card .ic {
   width: 38px; height: 38px; border-radius: 4px; display: grid; place-items: center;
-  background: rgba(22, 34, 76, 0.06); color: var(--navy); font-size: 1.2rem; margin-bottom: 12px;
+  background: rgba(74, 52, 32, 0.06); color: var(--brown); font-size: 1.2rem; margin-bottom: 12px;
   transition: background-color 0.18s ease, color 0.18s ease;
 }
-.card h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--navy); line-height: 1.3; font-weight: 600; }
+.card h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--brown); line-height: 1.3; font-weight: 600; }
 .card p { color: var(--ink-soft); flex: 1 1 auto; margin-bottom: 0; font-size: 0.875rem; line-height: 1.6; }
 .card p + p { margin-top: 10px; }
 .card .btn { margin-top: auto; align-self: flex-start; }
@@ -295,7 +301,7 @@ section.wrap > .panel:first-child { margin-top: 0; }
 /* ---------- quote ---------- */
 .quote { border-inline-start: 3px solid var(--gold); padding: 6px 0 6px 24px; margin: 8px 0; }
 body.lang-yi .quote { padding: 6px 24px 6px 0; }
-.quote .heb { font-family: 'Frank Ruhl Libre', serif; font-size: 1.3rem; color: var(--navy); line-height: 1.8; }
+.quote .heb { font-family: 'Frank Ruhl Libre', serif; font-size: 1.3rem; color: var(--brown); line-height: 1.8; }
 .quote .src { color: var(--gold-deep); font-size: 0.85rem; margin-top: 8px; letter-spacing: .04em; }
 .quote .tr { color: var(--ink-soft); font-style: italic; margin-top: 10px; }
 
@@ -326,7 +332,7 @@ body.lang-yi .quote { padding: 6px 24px 6px 0; }
 
 /* ---------- CTA band ---------- */
 .cta-band { text-align: center; }
-.cta-band .panel { padding: clamp(40px, 5vw, 56px) clamp(24px, 4vw, 36px); background: var(--navy); border-color: var(--navy); }
+.cta-band .panel { padding: clamp(40px, 5vw, 56px) clamp(24px, 4vw, 36px); background: var(--brown-deep); border-color: var(--brown-deep); }
 .cta-band .panel h2 { color: #fff; }
 .cta-band .panel .eyebrow { color: rgba(255,255,255,.75); }
 .cta-band h2 { font-size: clamp(1.45rem, 2.8vw, 1.85rem); }
@@ -358,7 +364,7 @@ body.lang-yi .badge { letter-spacing: 0; font-size: .66rem; }
 .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
 .info-line { display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .info-line .ic { color: var(--gold-deep); font-size: 1.3rem; }
-.info-line b { color: var(--navy); display: block; }
+.info-line b { color: var(--brown); display: block; }
 .info-line span { color: var(--ink-soft); font-size: .92rem; }
 
 /* ---------- interior page hero ---------- */
@@ -367,7 +373,7 @@ body.lang-yi .badge { letter-spacing: 0; font-size: .66rem; }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   min-height: clamp(280px, 40vh, 400px);
   padding: clamp(56px, 7vw, 88px) 0 clamp(64px, 8vw, 96px);
-  background: linear-gradient(180deg, rgba(13,19,44,.82), rgba(13,19,44,.72)), url("../images/hero-learning.jpg") center 30%/cover no-repeat;
+  background: var(--hero-overlay), url("../images/hero-learning.jpg") center 30%/cover no-repeat;
 }
 .page-hero h1 { font-size: clamp(1.65rem, 4vw, 2.25rem); margin: 8px 0 6px; color: #fff; }
 .page-hero p { color: rgba(255,255,255,.82); max-width: 520px; margin: 0 auto; font-size: clamp(0.9rem, 1.3vw, 0.975rem); line-height: 1.6; }
@@ -375,7 +381,7 @@ body.lang-yi .badge { letter-spacing: 0; font-size: .66rem; }
 /* ---------- footer ---------- */
 footer.foot {
   position: relative; z-index: 2; border-top: 3px solid var(--gold);
-  background: var(--navy); padding: 52px 0 28px; margin-top: 30px;
+  background: var(--brown-deep); padding: 52px 0 28px; margin-top: 30px;
 }
 .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
 .foot h4 { color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 12px; }
@@ -448,7 +454,7 @@ footer.foot {
   font-weight: 600;
   min-width: auto;
 }
-.qg-pill:hover { transform: none; background: rgba(22, 34, 76, 0.05); border-color: var(--line); color: var(--navy); }
+.qg-pill:hover { transform: none; background: rgba(74, 52, 32, 0.05); border-color: var(--line); color: var(--brown); }
 .quickgive .qg-sub { font-size: 0.875rem; line-height: 1.5; }
 
 .marquee {
@@ -461,16 +467,16 @@ footer.foot {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
 }
-.marquee__item b { color: var(--navy); font-weight: 600; }
+.marquee__item b { color: var(--brown); font-weight: 600; }
 
 section.wrap:nth-of-type(even)::before {
-  background: #f4f4f6;
+  background: #f5f0e8;
 }
 
 .marquee { direction: ltr; overflow: hidden; border-block: 1px solid var(--line); position: relative; z-index: 2; padding-block: 2px; }
 .marquee__track { display: flex; width: max-content; animation: kcScroll 42s linear infinite; }
 .marquee:hover .marquee__track { animation-play-state: paused; }
-.marquee__item { display: inline-flex; align-items: center; gap: 20px; white-space: nowrap; color: var(--navy); }
+.marquee__item { display: inline-flex; align-items: center; gap: 20px; white-space: nowrap; color: var(--brown); }
 .marquee__item .sp { color: var(--ink-soft); font-size: 0.85em; }
 @keyframes kcScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
@@ -482,7 +488,7 @@ section.wrap:nth-of-type(even) { background: transparent; position: relative; }
 section.wrap:nth-of-type(even)::before {
   content: ""; position: absolute; top: 0; bottom: 0; left: 50%;
   width: 100vw; transform: translateX(-50%);
-  background: #f4f4f6; z-index: -1;
+  background: #f5f0e8; z-index: -1;
 }
 
 /* ============================================================
@@ -490,14 +496,14 @@ section.wrap:nth-of-type(even)::before {
    Layers on top of existing CSS. Bigger, clearer, calmer.
    No color/font/layout changes — only size, leading, contrast,
    spacing. Hebrew/Yiddish (.yi / body.lang-yi) gets extra size
-   + generous line-height. Keeps the navy/gold luminous look.
+   + generous line-height. Warm brown/gold palette.
    ============================================================ */
 
 /* ---- 1. Comfortable reading baseline + darker muted ink ---- */
 :root{
-  --ink-soft: #474f6b;          /* darken muted body text for contrast on cream/white */
-  --muted:    #474f6b;          /* define the token referenced (but undefined) inline */
-  --text:     var(--ink);       /* define the token referenced (but undefined) inline */
+  --ink-soft: #645647;
+  --muted:    #645647;
+  --text:     var(--ink);
 }
 body{ font-size: 1.06rem; }      /* ~17px reading base, up from 16px default */
 
@@ -509,7 +515,7 @@ body.lang-yi{ line-height: 1.9; }
 .card p{
   font-size: 1.1rem !important;
   line-height: 1.7;
-  color: #474f6b;
+  color: #645647;
 }
 .card p .yi,
 body.lang-yi .card p{
@@ -523,7 +529,7 @@ body.lang-yi .card p{
   font-size: 1.12rem !important;
   line-height: 1.75;
   margin-bottom: 18px;
-  color: #474f6b;
+  color: #645647;
 }
 body.lang-yi .prose p{ font-size: 1.2rem !important; line-height: 1.9; }
 
@@ -535,12 +541,12 @@ body.lang-yi .page-hero p{ font-size: clamp(1.22rem, 2vw, 1.38rem) !important; l
 body.lang-yi .hero .lede{ font-size: clamp(1.22rem, 2vw, 1.42rem); line-height: 1.85; }
 
 /* ---- 6. Stat labels under the big gold numbers ---- */
-.stat .lab { font-size: 1rem; line-height: 1.5; color: #474f6b; }
+.stat .lab { font-size: 1rem; line-height: 1.5; color: #645647; }
 body.lang-yi .stat .lab { font-size: 1.1rem; line-height: 1.65; }
 body.lang-yi .stat .num { font-size: clamp(2.1rem, 3.4vw, 2.65rem); min-height: 3.25rem; }
 
 /* ---- 7. Quick-give subtitle (focal CTA under hero) ---- */
-.quickgive .qg-sub{ font-size: 1.08rem; line-height: 1.6; color: #474f6b; }
+.quickgive .qg-sub{ font-size: 1.08rem; line-height: 1.6; color: #645647; }
 body.lang-yi .quickgive .qg-sub{ font-size: 1.16rem; line-height: 1.85; }
 
 /* ---- 8. Testimonial / inline body paragraphs that lean on undefined tokens ---- */
@@ -557,12 +563,12 @@ body.lang-yi .quote .tr{ font-size: 1.14rem; line-height: 1.85; }
 
 /* ---- 10. Segula list (used on segulos/partner) ---- */
 .segula{ padding: 22px 24px; }
-.segula p{ font-size: 1.08rem; line-height: 1.7; color: #474f6b; }
+.segula p{ font-size: 1.08rem; line-height: 1.7; color: #645647; }
 .segula .tag{ font-size: 1.26rem; line-height: 1.55; }
 body.lang-yi .segula p{ font-size: 1.18rem; line-height: 1.9; }
 
 /* ---- 11. Timeline / schedule descriptions (about page) ---- */
-.tline .what p{ font-size: 1.08rem; line-height: 1.65; color: #474f6b; }
+.tline .what p{ font-size: 1.08rem; line-height: 1.65; color: #645647; }
 body.lang-yi .tline .what p{ font-size: 1.18rem; line-height: 1.9; }
 
 /* ---- 12. CTA band paragraph on navy ---- */
@@ -576,7 +582,7 @@ body.lang-yi .foot a, body.lang-yi .foot p{ font-size: 1.12rem; line-height: 1.9
 body.lang-yi .foot h4{ font-size: 1.45rem; line-height: 1.4; }
 
 /* ---- 14. Nav, language toggle, eyebrows, brand sub-line ---- */
-.nav-links a{ font-size: 1rem; color: #3a4264; }
+.nav-links a{ font-size: 1rem; color: #524839; }
 body.lang-yi .nav-links a{ font-size: 1.08rem; }
 .lang-toggle button{ font-size: 0.9rem; padding: 6px 14px; }
 body.lang-yi .lang-toggle button{ font-size: 0.98rem; }
@@ -586,10 +592,10 @@ body.lang-yi .eyebrow{ font-size: 0.94rem; letter-spacing: 0; }
 
 /* ---- 15. Tiers, contact, form labels (partner / contact, shared CSS) ---- */
 .tier .per{ font-size: 0.95rem; }
-.tier li{ font-size: 1.05rem; color: #474f6b; padding: 9px 0; }
+.tier li{ font-size: 1.05rem; color: #645647; padding: 9px 0; }
 body.lang-yi .tier li{ font-size: 1.14rem; line-height: 1.85; }
-.info-line span{ font-size: 1rem; color: #474f6b; }
-.field label{ font-size: 0.95rem; color: #3a4264; font-weight: 500; }
+.info-line span{ font-size: 1rem; color: #645647; }
+.field label{ font-size: 0.95rem; color: #524839; font-weight: 500; }
 body.lang-yi .field label{ font-size: 1.05rem; }
 
 /* ---- 16. Emphasis weight so <strong> reads clearly at base weight 400 ---- */
@@ -612,8 +618,8 @@ body.lang-yi .field label{ font-size: 1.05rem; }
 }
 
 .nav-links a.active {
-  color: var(--navy);
-  background: rgba(22, 34, 76, 0.06);
+  color: var(--brown);
+  background: rgba(74, 52, 32, 0.06);
   font-weight: 600;
 }
 
@@ -679,15 +685,15 @@ body.lang-yi .eyebrow { font-size: 0.75rem !important; }
 .segula:hover,
 .logo-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(22, 34, 76, 0.22);
-  box-shadow: 0 4px 14px rgba(22, 34, 76, 0.07);
+  border-color: rgba(74, 52, 32, 0.22);
+  box-shadow: 0 4px 14px rgba(74, 52, 32, 0.07);
 }
 .card:hover .ic {
   background: var(--gold-soft);
   color: var(--gold-deep);
 }
 .tier.feat:hover {
-  box-shadow: 0 0 0 1px var(--gold), 0 6px 18px rgba(22, 34, 76, 0.08);
+  box-shadow: 0 0 0 1px var(--gold), 0 6px 18px rgba(74, 52, 32, 0.08);
 }
 @media (prefers-reduced-motion: reduce) {
   .card:hover,
