@@ -1,25 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <defs>
-    <linearGradient id="kcBg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#243a78"/>
-      <stop offset=".55" stop-color="#16224c"/>
-      <stop offset="1" stop-color="#0c1330"/>
-    </linearGradient>
-    <linearGradient id="kcGold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f4e2a8"/>
-      <stop offset=".5" stop-color="#cda24c"/>
-      <stop offset="1" stop-color="#a87d23"/>
-    </linearGradient>
-    <radialGradient id="kcGlow" cx="50%" cy="48%" r="52%">
-      <stop offset="0" stop-color="#ecd596" stop-opacity=".6"/>
-      <stop offset="1" stop-color="#ecd596" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#kcBg)"/>
-  <rect x="2.6" y="2.6" width="58.8" height="58.8" rx="14.4" fill="none" stroke="#c9a14a" stroke-opacity=".4" stroke-width="1"/>
-  <circle cx="32" cy="33" r="23" fill="url(#kcGlow)"/>
-  <path d="M32 9 L38.7 25.3 L55 32 L38.7 38.7 L32 55 L25.3 38.7 L9 32 L25.3 25.3 Z" fill="url(#kcGold)"/>
-  <circle cx="32" cy="32" r="3.1" fill="#fffaf0" fill-opacity=".92"/>
-  <path d="M48.5 12.5 l1.4 3.5 3.5 1.4 -3.5 1.4 -1.4 3.5 -1.4 -3.5 -3.5 -1.4 3.5 -1.4 Z" fill="url(#kcGold)" opacity=".8"/>
-  <path d="M14 44 l1 2.5 2.5 1 -2.5 1 -1 2.5 -1 -2.5 -2.5 -1 2.5 -1 Z" fill="url(#kcGold)" opacity=".6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABcklEQVR42mNgGAWjYLCA////k4SzQgz+h1oLgzGITap+sh0AsjDSXgLDQpAYSI6mDiDGAmIdQbIDSPEdMWpJckCMs+w/UuOYkB6SHECK74nVM7QdAMt+yDjMRvR/lKPUf5o74O/fv1jVJHmpoGRDukbBn9+/BQYkCub1V4LFEz2V/2NTQ9MQAImVJtj/X7uw7//U1pz3IysX0M0Bl/bk/Uc37OaxZjD71omu/68fHSy8ebz9//sX5/7fOt7x/9KeAoxccGlP/n+yHLBvnt5/GEZ2wP1blw3wYWQHIJtBsgNe3d81DaYxzIb0KIDpAZnx6sGeaSQ54N+/v+x/fn8VwIzPf8ywEIFY8I8Vxof5GFsaIDkEYAaG24rAgzA7QPI/tiIYG949WxesZ12/Foo4UQ4g1hJyMV4H0NpyZEdggKMr3eDBfXF37v8Xd7cV/P71RRlfQsOVwtHx989PC57eXFtwYWcGWP3BxRb/R7sBo2DQAADpRXwUo/Nh/gAAAABJRU5ErkJggg==" width="32" height="32"/>
 </svg>
