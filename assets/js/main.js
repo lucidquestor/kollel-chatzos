@@ -101,7 +101,9 @@
     var menu = wrap.querySelector('.custom-select__menu');
     if (!native || !valueEl || !menu) return;
     var idx = native.selectedIndex;
-    valueEl.textContent = native.options[idx] ? native.options[idx].textContent : '';
+    var opt = native.options[idx];
+    valueEl.textContent = opt ? opt.textContent : '';
+    valueEl.classList.toggle('is-placeholder', !opt || !opt.value);
     menu.querySelectorAll('.custom-select__option').forEach(function (el, i) {
       el.classList.toggle('is-selected', i === idx);
       el.setAttribute('aria-selected', i === idx ? 'true' : 'false');
@@ -122,8 +124,12 @@
     }
   }
 
-  function initCustomSelects() {
-    document.querySelectorAll('.custom-select').forEach(function (wrap) {
+  function initCustomSelects(root) {
+    var scope = root || document;
+    scope.querySelectorAll('.custom-select').forEach(function (wrap) {
+      if (wrap.dataset.selectReady === 'true') return;
+      wrap.dataset.selectReady = 'true';
+
       var native = wrap.querySelector('select');
       var trigger = wrap.querySelector('.custom-select__trigger');
       var menu = wrap.querySelector('.custom-select__menu');
@@ -346,40 +352,50 @@
     modal.innerHTML = [
       '<div class="dedication-modal__backdrop" data-close></div>',
       '<div class="dedication-modal__panel" role="dialog" aria-modal="true" aria-labelledby="dedication-modal-title">',
-      '  <button type="button" class="dedication-modal__close" data-close aria-label="Close">&times;</button>',
-      '  <p class="eyebrow"><span class="en">Dedicate tonight</span><span class="yi">ווידמעט די נאכט</span></p>',
-      '  <h2 id="dedication-modal-title" class="section-title section-title-md">',
-      '    <span class="en">Name for tefillah at chatzos</span>',
-      '    <span class="yi">נאמען פאר תפילה ביי חצות</span>',
-      '  </h2>',
-      '  <p class="section-lead section-lead--sm dedication-modal__lead">',
-      '    <span class="en">The lomdim will have you in mind tonight. Then continue to complete your donation.</span>',
-      '    <span class="yi">די לומדים וועלן אייך דערמאנען היינט ביי חצות. דערנאך גייט ווייטער צום באצalen.</span>',
-      '  </p>',
+      '  <div class="dedication-modal__header">',
+      '    <button type="button" class="dedication-modal__close" data-close aria-label="Close"><span aria-hidden="true">&times;</span></button>',
+      '    <p class="eyebrow"><span class="en">Dedicate tonight</span><span class="yi">ווידמעט די נאכט</span></p>',
+      '    <h2 id="dedication-modal-title" class="dedication-modal__title">',
+      '      <span class="en">Name for tefillah at chatzos</span>',
+      '      <span class="yi">נאמען פאר תפילה ביי חצות</span>',
+      '    </h2>',
+      '    <p class="dedication-modal__lead">',
+      '      <span class="en">The lomdim will have you in mind tonight. Then continue to complete your donation.</span>',
+      '      <span class="yi">די לומדים וועלן אייך דערמאנען היינט ביי חצות. דערנאך גייט ווייטער צום באצalen.</span>',
+      '    </p>',
+      '  </div>',
+      '  <div class="dedication-modal__body">',
       '  <form id="dedication-form" class="dedication-form">',
       '    <input type="hidden" name="amount" id="dedication-amount" />',
       '    <input type="hidden" name="source" value="donate_modal" />',
       '    <div class="field-row">',
       '      <div class="field">',
       '        <label><span class="en">Full name</span><span class="yi">פולע נאמען</span></label>',
-      '        <input type="text" name="name" required />',
+      '        <input type="text" name="name" required autocomplete="name" />',
       '      </div>',
       '      <div class="field">',
       '        <label><span class="en">Hebrew name</span><span class="yi">נאמען לתפילה</span></label>',
-      '        <input type="text" name="hebrew_name" />',
+      '        <input type="text" name="hebrew_name" autocomplete="off" />',
       '      </div>',
       '    </div>',
       '    <div class="field">',
-      '      <label><span class="en">Occasion</span><span class="yi">סיבה / זכות</span></label>',
-      '      <select name="occasion">',
-      '        <option value="">Choose…</option>',
-      '        <option>Refuah</option>',
-      '        <option>Parnassah</option>',
-      '        <option>Shidduch</option>',
-      '        <option>Simcha</option>',
-      '        <option>L\'zecher nishmas</option>',
-      '        <option>General zechus</option>',
-      '      </select>',
+      '      <label id="dedication-occasion-label"><span class="en">Occasion</span><span class="yi">סיבה / זכות</span></label>',
+      '      <div class="custom-select">',
+      '        <select name="occasion" class="custom-select__native" tabindex="-1" aria-hidden="true">',
+      '          <option value="">Choose…</option>',
+      '          <option>Refuah</option>',
+      '          <option>Parnassah</option>',
+      '          <option>Shidduch</option>',
+      '          <option>Simcha</option>',
+      '          <option>L\'zecher nishmas</option>',
+      '          <option>General zechus</option>',
+      '        </select>',
+      '        <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="dedication-occasion-label">',
+      '          <span class="custom-select__value"></span>',
+      '          <span class="custom-select__chev" aria-hidden="true"></span>',
+      '        </button>',
+      '        <ul class="custom-select__menu" role="listbox" hidden></ul>',
+      '      </div>',
       '    </div>',
       '    <div class="field">',
       '      <label><span class="en">Note (optional)</span><span class="yi">נאטיץ (אפציונעל)</span></label>',
@@ -390,22 +406,26 @@
       '      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />',
       '    </div>',
       '    <p class="dedication-modal__amount"><span class="en">Donation</span><span class="yi">נדבה</span>: <strong id="dedication-amount-label"></strong></p>',
-      '    <button type="submit" class="btn btn-gold btn-block">',
-      '      <span class="en">Save &amp; continue to donate ✦</span>',
-      '      <span class="yi">אפגעשפארט &amp; ווייטער צום באצalen ✦</span>',
-      '    </button>',
-      '    <button type="button" class="btn btn-ghost btn-block dedication-modal__skip" data-skip>',
-      '      <span class="en">Skip — donate without note</span>',
-      '      <span class="yi">איבerspringen — נאר באצalen</span>',
-      '    </button>',
+      '    <div class="dedication-modal__actions">',
+      '      <button type="submit" class="btn btn-gold btn-block">',
+      '        <span class="en">Save &amp; continue to donate ✦</span>',
+      '        <span class="yi">אפגעשפארט &amp; ווייטער צום באצalen ✦</span>',
+      '      </button>',
+      '      <button type="button" class="btn btn-ghost btn-block dedication-modal__skip" data-skip>',
+      '        <span class="en">Skip — donate without note</span>',
+      '        <span class="yi">איבerspringen — נאר באצalen</span>',
+      '      </button>',
+      '    </div>',
       '    <p class="form-feedback form-feedback--error dedication-modal__error">',
       '      <span class="en">Could not save. You can still donate — or try again.</span>',
       '      <span class="yi">עס איז נישט געשפארט. איר קענט נאכאלץ באצalen.</span>',
       '    </p>',
       '  </form>',
+      '  </div>',
       '</div>',
     ].join('\n');
     document.body.appendChild(modal);
+    initCustomSelects(modal);
 
     var form = modal.querySelector('#dedication-form');
     var amountInput = modal.querySelector('#dedication-amount');
@@ -422,6 +442,7 @@
       var amountRow = modal.querySelector('.dedication-modal__amount');
       if (amountRow) amountRow.hidden = !amount;
       errorEl.classList.remove('is-visible');
+      closeCustomSelect(modal.querySelector('.custom-select.is-open'));
       modal.hidden = false;
       document.body.classList.add('modal-open');
       var nameInput = form.querySelector('[name="name"]');
@@ -431,7 +452,9 @@
     function closeModal() {
       modal.hidden = true;
       document.body.classList.remove('modal-open');
+      closeCustomSelect(modal.querySelector('.custom-select'));
       form.reset();
+      modal.querySelectorAll('.custom-select').forEach(syncCustomSelect);
       errorEl.classList.remove('is-visible');
     }
 
