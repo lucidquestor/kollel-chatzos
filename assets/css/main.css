@@ -201,7 +201,7 @@ body.lang-yi .nav-links a { font-family: var(--font-hebrew); font-size: var(--te
   min-height: clamp(340px, 48vh, 480px);
   padding: clamp(64px, 8vw, 96px) 0 clamp(56px, 7vw, 80px);
   text-align: center;
-  background: var(--hero-overlay), url("../images/hero-home.png") center/cover no-repeat;
+  background: var(--hero-overlay), url("../images/hero-home.png") center center/cover no-repeat;
 }
 .hero .moon { display: none; }
 .hero h1 {
@@ -475,13 +475,13 @@ body.lang-yi .badge {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   min-height: clamp(280px, 40vh, 400px);
   padding: clamp(56px, 7vw, 88px) 0 clamp(64px, 8vw, 96px);
-  background: var(--hero-overlay), url("../images/hero-home.png") center 30%/cover no-repeat;
+  background: var(--hero-overlay), url("../images/hero-about.png") center center/cover no-repeat;
 }
 body[data-page="segulos"] .page-hero {
-  background: var(--hero-overlay), url("../images/hero-segulos.png") center 45%/cover no-repeat;
+  background: var(--hero-overlay), url("../images/hero-segulos.png") center center/cover no-repeat;
 }
 body[data-page="partner"] .page-hero {
-  background: var(--hero-overlay), url("../images/hero-partner.png") center 35%/cover no-repeat;
+  background: var(--hero-overlay), url("../images/hero-partner.png") center center/cover no-repeat;
 }
 .page-hero h1 { font-size: clamp(1.65rem, 4vw, 2.25rem); margin: 8px 0 6px; color: var(--ivory); }
 .page-hero p { color: rgba(255,255,255,.82); max-width: 520px; margin: 0 auto; font-size: clamp(0.9rem, 1.3vw, 0.975rem); line-height: 1.6; }
