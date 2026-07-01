@@ -1,5 +1,6 @@
 /**
  * Generate favicon PNGs + SVG from assets/images/logo.png
+ * Favicons use a white background for clarity at small sizes.
  * Usage: node scripts/make-favicons.js
  */
 const fs = require('fs');
@@ -70,24 +71,40 @@ function resizeRgba(srcW, srcH, src, dstW, dstH) {
   return out;
 }
 
-function fitSquare(width, height, pixels, size, padRatio = 0.08) {
+function flattenOnWhite(pixels) {
+  for (let i = 0; i < pixels.length; i += 4) {
+    const a = pixels[i + 3] / 255;
+    pixels[i] = Math.round(pixels[i] * a + 255 * (1 - a));
+    pixels[i + 1] = Math.round(pixels[i + 1] * a + 255 * (1 - a));
+    pixels[i + 2] = Math.round(pixels[i + 2] * a + 255 * (1 - a));
+    pixels[i + 3] = 255;
+  }
+}
+
+function fitSquare(width, height, pixels, size, padRatio = 0.1) {
   const side = Math.max(width, height);
   const pad = Math.round(side * padRatio);
   const canvas = side + pad * 2;
-  const square = Buffer.alloc(canvas * canvas * 4);
+  const square = Buffer.alloc(canvas * canvas * 4, 255);
   const ox = Math.round((canvas - width) / 2);
   const oy = Math.round((canvas - height) / 2);
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       const si = (y * width + x) * 4;
+      const a = pixels[si + 3] / 255;
+      if (a <= 0) continue;
       const di = ((oy + y) * canvas + (ox + x)) * 4;
-      square[di] = pixels[si];
-      square[di + 1] = pixels[si + 1];
-      square[di + 2] = pixels[si + 2];
-      square[di + 3] = pixels[si + 3];
+      const r = pixels[si];
+      const g = pixels[si + 1];
+      const b = pixels[si + 2];
+      square[di] = Math.round(r * a + 255 * (1 - a));
+      square[di + 1] = Math.round(g * a + 255 * (1 - a));
+      square[di + 2] = Math.round(b * a + 255 * (1 - a));
+      square[di + 3] = 255;
     }
   }
   const scaled = resizeRgba(canvas, canvas, square, size, size);
+  flattenOnWhite(scaled);
   return { width: size, height: size, pixels: scaled };
 }
 
