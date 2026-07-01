@@ -95,6 +95,114 @@
     pending.forEach(function (el) { io.observe(el); });
   }
 
+  function syncCustomSelect(wrap) {
+    var native = wrap.querySelector('select');
+    var valueEl = wrap.querySelector('.custom-select__value');
+    var menu = wrap.querySelector('.custom-select__menu');
+    if (!native || !valueEl || !menu) return;
+    var idx = native.selectedIndex;
+    valueEl.textContent = native.options[idx] ? native.options[idx].textContent : '';
+    menu.querySelectorAll('.custom-select__option').forEach(function (el, i) {
+      el.classList.toggle('is-selected', i === idx);
+      el.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+    });
+  }
+
+  function closeCustomSelect(wrap) {
+    if (!wrap) return;
+    var trigger = wrap.querySelector('.custom-select__trigger');
+    var menu = wrap.querySelector('.custom-select__menu');
+    wrap.classList.remove('is-open');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    if (menu) {
+      menu.hidden = true;
+      menu.querySelectorAll('.custom-select__option.is-focused').forEach(function (el) {
+        el.classList.remove('is-focused');
+      });
+    }
+  }
+
+  function initCustomSelects() {
+    document.querySelectorAll('.custom-select').forEach(function (wrap) {
+      var native = wrap.querySelector('select');
+      var trigger = wrap.querySelector('.custom-select__trigger');
+      var menu = wrap.querySelector('.custom-select__menu');
+      if (!native || !trigger || !menu) return;
+
+      menu.innerHTML = '';
+      Array.from(native.options).forEach(function (opt, i) {
+        var li = document.createElement('li');
+        li.className = 'custom-select__option' + (opt.selected ? ' is-selected' : '');
+        li.setAttribute('role', 'option');
+        li.setAttribute('data-index', String(i));
+        li.setAttribute('aria-selected', opt.selected ? 'true' : 'false');
+        li.textContent = opt.textContent;
+        menu.appendChild(li);
+      });
+
+      function selectIndex(i) {
+        if (i < 0 || i >= native.options.length) return;
+        native.selectedIndex = i;
+        syncCustomSelect(wrap);
+        native.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+
+      function openMenu() {
+        document.querySelectorAll('.custom-select.is-open').forEach(function (other) {
+          if (other !== wrap) closeCustomSelect(other);
+        });
+        wrap.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        menu.hidden = false;
+      }
+
+      trigger.addEventListener('click', function () {
+        if (wrap.classList.contains('is-open')) closeCustomSelect(wrap);
+        else openMenu();
+      });
+
+      trigger.addEventListener('keydown', function (e) {
+        var idx = native.selectedIndex;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (!wrap.classList.contains('is-open')) openMenu();
+          var next = e.key === 'ArrowDown'
+            ? Math.min(idx + 1, native.options.length - 1)
+            : Math.max(idx - 1, 0);
+          selectIndex(next);
+        } else if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          if (wrap.classList.contains('is-open')) closeCustomSelect(wrap);
+          else openMenu();
+        } else if (e.key === 'Escape') {
+          closeCustomSelect(wrap);
+        }
+      });
+
+      menu.addEventListener('click', function (e) {
+        var opt = e.target.closest('.custom-select__option');
+        if (!opt) return;
+        selectIndex(Number(opt.getAttribute('data-index')));
+        closeCustomSelect(wrap);
+        trigger.focus();
+      });
+
+      syncCustomSelect(wrap);
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.custom-select')) {
+        document.querySelectorAll('.custom-select.is-open').forEach(closeCustomSelect);
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.custom-select.is-open').forEach(closeCustomSelect);
+      }
+    });
+  }
+
   function initPartnerForm() {
     var form = document.getElementById('partner-form-el');
     if (!form) return;
@@ -103,6 +211,12 @@
       var note = document.getElementById('form-note');
       if (note) note.style.display = 'block';
       form.reset();
+      document.querySelectorAll('.custom-select').forEach(syncCustomSelect);
+    });
+    form.addEventListener('reset', function () {
+      setTimeout(function () {
+        document.querySelectorAll('.custom-select').forEach(syncCustomSelect);
+      }, 0);
     });
   }
 
@@ -139,6 +253,7 @@
     initLang();
     initNav();
     initReveal();
+    initCustomSelects();
     initPartnerForm();
     initMailingForm();
     initTaxIdCopy();

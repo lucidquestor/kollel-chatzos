@@ -238,16 +238,23 @@
               <input type="text" name="contact" required />
             </div>
             <div class="field">
-              <label><span class="en">Partnership</span><span class="yi">שותפות</span></label>
-              <select name="tier">
-                <option>Individual — $36</option>
-                <option>Chatzos Partnership — $180</option>
-                <option>Yissachar–Zevulun — $360 / month</option>
-                <option>Kollel Sponsor — $720</option>
-                <option>Segulah dedication (refuah / parnassah / shidduch…)</option>
-                <option>Simcha dedication (wedding / bar mitzvah…)</option>
-                <option>Other / לזכר נשמת</option>
-              </select>
+              <label id="partnership-label"><span class="en">Partnership</span><span class="yi">שותפות</span></label>
+              <div class="custom-select">
+                <select name="tier" class="custom-select__native" tabindex="-1" aria-hidden="true">
+                  <option>Individual — $36</option>
+                  <option>Chatzos Partnership — $180</option>
+                  <option>Yissachar–Zevulun — $360 / month</option>
+                  <option>Kollel Sponsor — $720</option>
+                  <option>Segulah dedication (refuah / parnassah / shidduch…)</option>
+                  <option>Simcha dedication (wedding / bar mitzvah…)</option>
+                  <option>Other / לזכר נשמת</option>
+                </select>
+                <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="partnership-label">
+                  <span class="custom-select__value"></span>
+                  <span class="custom-select__chev" aria-hidden="true"></span>
+                </button>
+                <ul class="custom-select__menu" role="listbox" hidden></ul>
+              </div>
             </div>
           </div>
           <div class="field">
