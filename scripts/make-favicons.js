@@ -10,6 +10,32 @@ const { readPng, writePng } = require('./png-utils');
 const ROOT = path.join(__dirname, '..');
 const LOGO = path.join(ROOT, 'assets/images/logo.png');
 const ICONS = path.join(ROOT, 'assets/icons');
+const CORNER_RADIUS_RATIO = 0.16;
+
+function isInsideRoundedRect(x, y, w, h, r) {
+  r = Math.min(r, w / 2, h / 2);
+  if (x >= r && x <= w - r) return y >= 0 && y <= h;
+  if (y >= r && y <= h - r) return x >= 0 && x <= w;
+  if (x < r && y < r) return (x - r) ** 2 + (y - r) ** 2 <= r ** 2;
+  if (x > w - r && y < r) return (x - (w - r)) ** 2 + (y - r) ** 2 <= r ** 2;
+  if (x < r && y > h - r) return (x - r) ** 2 + (y - (h - r)) ** 2 <= r ** 2;
+  if (x > w - r && y > h - r) return (x - (w - r)) ** 2 + (y - (h - r)) ** 2 <= r ** 2;
+  return false;
+}
+
+function applyRoundedCorners(width, height, pixels, radiusPx) {
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      if (!isInsideRoundedRect(x + 0.5, y + 0.5, width, height, radiusPx)) {
+        pixels[(y * width + x) * 4 + 3] = 0;
+      }
+    }
+  }
+}
+
+function cornerRadiusForSize(size) {
+  return Math.max(2, Math.round(size * CORNER_RADIUS_RATIO));
+}
 
 function cropToContent(width, height, pixels) {
   let minX = width;
@@ -105,13 +131,18 @@ function fitSquare(width, height, pixels, size, padRatio = 0.1) {
   }
   const scaled = resizeRgba(canvas, canvas, square, size, size);
   flattenOnWhite(scaled);
+  applyRoundedCorners(size, size, scaled, cornerRadiusForSize(size));
   return { width: size, height: size, pixels: scaled };
 }
 
 function makeSvgFromPng(pngPath, size) {
   const b64 = fs.readFileSync(pngPath).toString('base64');
+  const r = cornerRadiusForSize(size);
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}">
-  <image href="data:image/png;base64,${b64}" width="${size}" height="${size}"/>
+  <defs>
+    <clipPath id="round"><rect width="${size}" height="${size}" rx="${r}" ry="${r}"/></clipPath>
+  </defs>
+  <image href="data:image/png;base64,${b64}" width="${size}" height="${size}" clip-path="url(#round)"/>
 </svg>`;
 }
 

@@ -1,3 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABgUlEQVR42mP4P8CAYdQBow4Ycg64f+vy/1Br4f/xbopwMRAbJHb/9mXaOgBkycHtK3HKH9i+AqyGJg4gxWBS1BLtgDAbEQyxX9/fEa2WIgdg89Hrh/v/v3508P/9C7P+v3l0gOxQYKB2kNLFASB+qq8mmIbhQztX/7905uDAhUCEnfj/dH+dERQFINxbnQBJ9baiWNXQNASWTm/8nxtm8n/pjOb/RTHWIywX0M0B++bp/X95dzuKYR9fXfr/6Mri/1cPVv6/tCfv/9UDlf/vnJnw//TGiP/XDlWjOACkF2QGWQ74++cnWPOR5Y7/w21FSA6BcFthsF6yHQALAWSaFECsXpwO2DEDUahkB0iA6dsnu/6XREjDs+GFnZn/1/Zpwfm75+gi6ZEE098/P8ObHhhwJSBkHO0ogiFGDibKAdSwiBRHoDgg1lkCr+bCUKn/k8tU/m+dpgOO2/Yshf/deYpg9p45uv/n1qv9r0uS/R/vKo7TjGhH8dFW8agDRh2AAgB8FKzCuX7csgAAAABJRU5ErkJggg==" width="32" height="32"/>
+  <defs>
+    <clipPath id="round"><rect width="32" height="32" rx="5" ry="5"/></clipPath>
+  </defs>
+  <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABkklEQVR42mP4//8/AxKmF4DbSW+LMRwyKBwwoGDUASQ74P6ty/9DrYX/x7spwsVAbJDY/duXaesAkCUHt6/EKX9g+wqwGpo4gBSDSVFLtAPCbEQwxH59f0e0WoocgM1Hrx/u///60cH/9y/M+v/m0QGyQ4GB2kFKFweA+Km+mmAahg/tXP3/0pmDAxcCEXbi/9P9dUZQFIBwb3UCJNXbimJVQ9MQWDq98X9umMn/pTOa/xfFWI+wXEA3B+ybp/f/5d3tKIZ9fHXp/6Mri/9fPVj5/9KevP9XD1T+v3Nmwv/TGyP+XztUjeIAkF6QGWQ54O+fn2DNR5Y7/g+3FSE5BMJthcF6yXYALASQaVIAsXpxOmDHDEShkh0gAaZvn+z6XxIhDc+GF3Zm/l/bpwXn756ji6RHEkx///wMb3pgwJWAkHG0owiGGDmYKAdQwyJSHIHigFhnCbyaC0Ol/k8uU/m/dZoOOG7bsxT+d+cpgtl75uj+n1uv9r8uSfZ/vKs4TjOiHcVHW8WDzwGjfcMB7Z4DAPHHmNYR3JbJAAAAAElFTkSuQmCC" width="32" height="32" clip-path="url(#round)"/>
 </svg>

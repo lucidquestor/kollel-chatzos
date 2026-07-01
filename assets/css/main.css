@@ -11,13 +11,26 @@ html.pref-yi .en { display: none; }
 html.pref-yi .yi { display: revert; }
 html.pref-yi body {
   direction: rtl;
-  font-family: 'Frank Ruhl Libre', 'Heebo', serif;
-  line-height: 1.9;
+  font-family: var(--font-hebrew);
+  line-height: 1.85;
 }
-html.pref-yi .yi { font-size: 1.05em; }
+html.pref-yi .yi { font-size: 1.02em; }
 html.pref-en .yi { display: none; }
 
 :root {
+  --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-hebrew: 'Frank Ruhl Libre', Georgia, serif;
+  --font-ui: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.8125rem;
+  --text-lg: 1.0625rem;
+  --num-stat: clamp(1.8125rem, 2.9vw, 2.125rem);
+  --num-stat-heb: clamp(1.5625rem, 2.5vw, 1.8125rem);
+  --num-stat-time: clamp(1.6875rem, 2.7vw, 2rem);
+  --num-price: clamp(1.875rem, 2.6vw, 2.25rem);
+  --num-stat-height: 2.625rem;
   --brown:       #4a3420;
   --brown-deep:  #3d2a18;
   --brown-700:   #5c4228;
@@ -52,10 +65,10 @@ html.pref-en .yi { display: none; }
 html, body { background: var(--bg); }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   color: var(--ink);
-  line-height: 1.65;
-  font-size: 0.9375rem;
+  line-height: 1.7;
+  font-size: var(--text-base);
   overflow-x: hidden;
   background: var(--bg);
 }
@@ -68,18 +81,22 @@ body.lang-yi .yi { display: revert; }
 /* Yiddish typography + RTL */
 body.lang-yi {
   direction: rtl;
-  font-family: 'Frank Ruhl Libre', 'Heebo', serif;
+  font-family: var(--font-hebrew);
+  line-height: 1.85;
 }
-body.lang-yi .brand-script { font-family: 'Frank Ruhl Libre', serif; }
-.yi { font-family: 'Frank Ruhl Libre', 'Heebo', serif; }
+body.lang-yi .brand-script { font-family: var(--font-hebrew); }
+.yi { font-family: var(--font-hebrew); }
 body.lang-yi h1, body.lang-yi h2, body.lang-yi h3 { letter-spacing: 0; }
 
 /* ---------- typography ---------- */
 h1, h2, h3, .display {
-  font-family: 'Cormorant Garamond', 'Frank Ruhl Libre', serif;
+  font-family: var(--font-display);
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.2;
   color: var(--brown);
+}
+body.lang-yi h1, body.lang-yi h2, body.lang-yi h3 {
+  font-family: var(--font-hebrew);
 }
 h2.section-title {
   font-size: clamp(1.45rem, 2.6vw, 1.85rem);
@@ -88,17 +105,22 @@ h2.section-title {
 }
 .eyebrow {
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--gold-deep);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-display);
 }
-body.lang-yi .eyebrow { letter-spacing: 0.1em; }
+body.lang-yi .eyebrow {
+  font-family: var(--font-hebrew);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
 a { color: var(--gold-deep); text-decoration: none; }
 
 .gold { color: var(--gold-deep); }
-.serif { font-family: 'Cormorant Garamond', serif; }
+.serif { font-family: var(--font-display); }
 
 /* ---------- decorative layer (subtle on light) ---------- */
 .stars { display: none; }
@@ -138,11 +160,11 @@ header.nav {
 
 .nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-links a {
-  color: var(--ink-soft); font-size: 0.875rem; font-weight: 500;
+  color: var(--ink-soft); font-size: var(--text-sm); font-weight: 500;
   padding: 6px 12px; border-radius: 4px; transition: .15s;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-ui);
 }
-body.lang-yi .nav-links a { font-family: 'Frank Ruhl Libre', serif; }
+body.lang-yi .nav-links a { font-family: var(--font-hebrew); font-size: var(--text-base); }
 .nav-links a:hover { color: var(--brown); background: rgba(74,52,32,.04); }
 .nav-links a.active { color: var(--brown); background: rgba(74,52,32,.06); font-weight: 600; }
 
@@ -154,11 +176,11 @@ body.lang-yi .nav-links a { font-family: 'Frank Ruhl Libre', serif; }
 .lang-toggle button {
   cursor: pointer; border: 0; background: transparent; color: var(--ink-soft);
   font-size: 0.75rem; font-weight: 600; padding: 4px 0; border-radius: 3px;
-  font-family: 'Inter', sans-serif; transition: .15s;
+  font-family: var(--font-ui); transition: .15s;
   min-width: 2rem; text-align: center;
 }
 .lang-toggle button[data-lang="yi"] {
-  font-family: 'Frank Ruhl Libre', 'Heebo', serif;
+  font-family: var(--font-hebrew);
   font-size: 0.95rem;
   line-height: 1;
 }
@@ -193,11 +215,11 @@ body.lang-yi .nav-links a { font-family: 'Frank Ruhl Libre', serif; }
 /* ---------- buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; gap: 7px;
-  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.875rem;
+  font-family: var(--font-ui); font-weight: 600; font-size: var(--text-sm);
   padding: 10px 20px; border-radius: 4px; cursor: pointer; border: 1px solid transparent;
   transition: background .15s ease, border-color .15s ease, color .15s ease;
 }
-body.lang-yi .btn { font-family: 'Frank Ruhl Libre', serif; }
+body.lang-yi .btn { font-family: var(--font-hebrew); font-size: var(--text-base); }
 .btn-gold {
   background: var(--gold-deep);
   color: #fff; box-shadow: none;
@@ -233,12 +255,30 @@ body.lang-yi .btn { font-family: 'Frank Ruhl Libre', serif; }
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 2.5rem;
-  margin-bottom: 8px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.65rem, 2.6vw, 2rem);
+  height: var(--num-stat-height);
+  margin-bottom: 10px;
+  font-family: var(--font-display);
+  font-size: var(--num-stat);
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
   color: var(--gold-deep);
   line-height: 1;
+}
+.stat .num.num-heb {
+  font-family: var(--font-hebrew);
+  font-size: var(--num-stat-heb);
+  font-weight: 700;
+  font-variant-numeric: normal;
+}
+.stat .num.num-time {
+  font-size: var(--num-stat-time);
+  letter-spacing: 0.02em;
+}
+.stat .num.num-symbol {
+  font-family: var(--font-body);
+  font-size: clamp(1.5rem, 2.4vw, 1.75rem);
+  font-weight: 400;
+  letter-spacing: 0;
 }
 .stat .lab {
   flex: 1 1 auto;
@@ -248,8 +288,8 @@ body.lang-yi .btn { font-family: 'Frank Ruhl Libre', serif; }
   margin: 0;
   max-width: 24ch;
   color: var(--ink-soft);
-  font-size: 0.8125rem;
-  line-height: 1.45;
+  font-size: var(--text-sm);
+  line-height: 1.5;
 }
 body.lang-yi .stat .lab { max-width: 26ch; }
 
@@ -280,16 +320,19 @@ section.wrap > .panel:first-child { margin-top: 0; }
   background: rgba(74, 52, 32, 0.06); color: var(--brown); font-size: 1.2rem; margin-bottom: 12px;
   transition: background-color 0.18s ease, color 0.18s ease;
 }
-.card h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--brown); line-height: 1.3; font-weight: 600; }
-.card p { color: var(--ink-soft); flex: 1 1 auto; margin-bottom: 0; font-size: 0.875rem; line-height: 1.6; }
+.card h3 { font-size: var(--text-lg); margin-bottom: 8px; color: var(--brown); line-height: 1.35; font-weight: 600; }
+body.lang-yi .card h3 { font-size: 1.125rem; }
+.card p { color: var(--ink-soft); flex: 1 1 auto; margin-bottom: 0; font-size: var(--text-sm); line-height: 1.65; }
+body.lang-yi .card p { font-size: var(--text-base); line-height: 1.8; }
 .card p + p { margin-top: 10px; }
 .card .btn { margin-top: auto; align-self: flex-start; }
 .card.tier .btn { align-self: stretch; text-align: center; justify-content: center; }
-.card .heb { color: var(--gold-deep); font-family: 'Frank Ruhl Libre', serif; font-size: 1rem; }
+.card .heb { color: var(--gold-deep); font-family: var(--font-hebrew); font-size: var(--text-base); }
 
 /* ---------- prose / panel ---------- */
 .lead-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 44px); align-items: center; }
-.prose p { color: var(--ink-soft); margin-bottom: 14px; font-size: 0.9375rem; line-height: 1.65; }
+.prose p { color: var(--ink-soft); margin-bottom: 14px; font-size: var(--text-base); line-height: 1.7; }
+body.lang-yi .prose p { font-size: 1.0625rem; line-height: 1.85; }
 .prose p strong { color: var(--ink); }
 
 .panel {
@@ -301,8 +344,8 @@ section.wrap > .panel:first-child { margin-top: 0; }
 /* ---------- quote ---------- */
 .quote { border-inline-start: 3px solid var(--gold); padding: 6px 0 6px 24px; margin: 8px 0; }
 body.lang-yi .quote { padding: 6px 24px 6px 0; }
-.quote .heb { font-family: 'Frank Ruhl Libre', serif; font-size: 1.3rem; color: var(--brown); line-height: 1.8; }
-.quote .src { color: var(--gold-deep); font-size: 0.85rem; margin-top: 8px; letter-spacing: .04em; }
+.quote .heb { font-family: var(--font-hebrew); font-size: 1.25rem; color: var(--brown); line-height: 1.85; }
+.quote .src { color: var(--gold-deep); font-size: var(--text-xs); margin-top: 8px; letter-spacing: .02em; }
 .quote .tr { color: var(--ink-soft); font-style: italic; margin-top: 10px; }
 
 /* ---------- segula list ---------- */
@@ -314,8 +357,8 @@ body.lang-yi .quote { padding: 6px 24px 6px 0; }
   transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
 }
 .segula .tag {
-  flex: 0 0 auto; font-family: 'Frank Ruhl Libre', serif; color: var(--gold-deep);
-  font-size: 1.15rem; min-width: 132px; font-weight: 700;
+  flex: 0 0 auto; font-family: var(--font-hebrew); color: var(--gold-deep);
+  font-size: 1.125rem; min-width: 132px; font-weight: 700; line-height: 1.5;
 }
 .segula p { color: var(--ink-soft); margin: 0; }
 
@@ -326,8 +369,16 @@ body.lang-yi .quote { padding: 6px 24px 6px 0; }
   padding: 20px 0; border-top: 1px solid var(--line); align-items: baseline;
 }
 .tline .row:last-child { border-bottom: 1px solid var(--line); }
-.tline .when { color: var(--gold-deep); font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; }
-.tline .what h3 { font-size: 1.25rem; }
+.tline .when {
+  color: var(--gold-deep);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+  line-height: 1.2;
+}
+body.lang-yi .tline .when { font-family: var(--font-hebrew); font-size: clamp(1.125rem, 1.8vw, 1.375rem); }
+.tline .what h3 { font-size: var(--text-lg); }
 .tline .what p { color: var(--ink-soft); margin-top: 4px; }
 
 /* ---------- CTA band ---------- */
@@ -336,13 +387,21 @@ body.lang-yi .quote { padding: 6px 24px 6px 0; }
 .cta-band .panel h2 { color: #fff; }
 .cta-band .panel .eyebrow { color: rgba(255,255,255,.75); }
 .cta-band h2 { font-size: clamp(1.45rem, 2.8vw, 1.85rem); }
-.cta-band p { color: rgba(255,255,255,.78); max-width: 540px; margin: 10px auto 0; font-size: 0.9375rem; line-height: 1.6; }
+.cta-band p { color: rgba(255,255,255,.78); max-width: 540px; margin: 10px auto 0; line-height: 1.65; }
 
 /* ---------- tiers ---------- */
 .tier { text-align: center; position: relative; padding-top: clamp(32px, 3vw, 40px); }
 .tier.feat { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), var(--shadow-lg); }
-.tier .price { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.75rem, 2.5vw, 2rem); color: var(--gold-deep); margin: 6px 0 2px; line-height: 1; }
-.tier .per { color: var(--ink-soft); font-size: .85rem; margin-bottom: 4px; }
+.tier .price {
+  font-family: var(--font-display);
+  font-size: var(--num-price);
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--gold-deep);
+  margin: 8px 0 4px;
+  line-height: 1;
+}
+.tier .per { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 4px; }
 .tier ul { list-style: none; margin: 16px 0 20px; text-align: start; flex: 1 1 auto; }
 .tier li { color: var(--ink-soft); padding: 7px 0; border-bottom: 1px dashed var(--line); }
 .tier li::before { content: "✦"; color: var(--gold); margin-inline-end: 10px; }
@@ -384,8 +443,10 @@ footer.foot {
   background: var(--brown-deep); padding: 52px 0 28px; margin-top: 30px;
 }
 .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
-.foot h4 { color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 12px; }
-.foot a, .foot p { color: rgba(255,255,255,.72); display: block; padding: 4px 0; font-size: .95rem; }
+.foot h4 { color: #fff; font-family: var(--font-display); font-size: 1.125rem; margin-bottom: 12px; }
+body.lang-yi .foot h4 { font-family: var(--font-hebrew); font-size: 1.25rem; }
+.foot a, .foot p { color: rgba(255,255,255,.72); display: block; padding: 4px 0; font-size: var(--text-sm); }
+body.lang-yi .foot a, body.lang-yi .foot p { font-size: var(--text-base); line-height: 1.8; }
 .foot a:hover { color: var(--gold-200); }
 .foot .copy { text-align: center; color: rgba(255,255,255,.6); font-size: .85rem; margin-top: 34px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.14); }
 
@@ -448,23 +509,34 @@ footer.foot {
   .quickgive .qg-actions { justify-content: center; }
 }
 .qg-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: auto;
   padding: 8px 14px;
   border-radius: 4px;
-  font-size: 0.8125rem;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
   font-weight: 600;
-  min-width: auto;
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--brown);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  transition: 0.18s;
 }
+body.lang-yi .qg-pill { font-family: var(--font-hebrew); font-size: var(--text-base); }
 .qg-pill:hover { transform: none; background: rgba(74, 52, 32, 0.05); border-color: var(--line); color: var(--brown); }
-.quickgive .qg-sub { font-size: 0.875rem; line-height: 1.5; }
+.quickgive .qg-sub { font-size: var(--text-sm); line-height: 1.55; }
+body.lang-yi .quickgive .qg-sub { font-size: var(--text-base); line-height: 1.75; }
 
 .marquee {
   background: var(--bg);
   border-block-color: var(--line);
 }
 .marquee__item {
-  font-size: clamp(0.875rem, 1.4vw, 1rem);
+  font-size: var(--text-sm);
   padding: 12px 0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
 }
 .marquee__item b { color: var(--brown); font-weight: 600; }
@@ -491,115 +563,27 @@ section.wrap:nth-of-type(even)::before {
   background: #f5f0e8; z-index: -1;
 }
 
-/* ============================================================
-   READABILITY & CLARITY POLISH
-   Layers on top of existing CSS. Bigger, clearer, calmer.
-   No color/font/layout changes — only size, leading, contrast,
-   spacing. Hebrew/Yiddish (.yi / body.lang-yi) gets extra size
-   + generous line-height. Warm brown/gold palette.
-   ============================================================ */
-
-/* ---- 1. Comfortable reading baseline + darker muted ink ---- */
-:root{
-  --ink-soft: #645647;
-  --muted:    #645647;
-  --text:     var(--ink);
-}
-body{ font-size: 1.06rem; }      /* ~17px reading base, up from 16px default */
-
-/* ---- 2. Hebrew / Yiddish global: a touch larger + much looser leading ---- */
-body.lang-yi{ line-height: 1.9; }
-.yi{ font-size: 1.05em; }         /* Hebrew glyphs read smaller at equal px — nudge up */
-
-/* ---- 3. Card descriptions (main "too small" offender) ---- */
-.card p{
-  font-size: 1.1rem !important;
-  line-height: 1.7;
-  color: #645647;
-}
-.card p .yi,
-body.lang-yi .card p{
-  font-size: 1.18rem !important;
-  line-height: 1.9 !important;
-}
-.card .heb{ font-size: 1.18rem !important; line-height: 1.65; }
-
-/* ---- 4. Prose / intro / page-hero paragraphs ---- */
-.prose p{
-  font-size: 1.12rem !important;
-  line-height: 1.75;
-  margin-bottom: 18px;
-  color: #645647;
-}
-body.lang-yi .prose p{ font-size: 1.2rem !important; line-height: 1.9; }
-
-.page-hero p{ font-size: clamp(1.12rem, 1.7vw, 1.3rem) !important; color: rgba(255,255,255,.92); max-width: 720px; }
-body.lang-yi .page-hero p{ font-size: clamp(1.22rem, 2vw, 1.38rem) !important; line-height: 1.85; }
-
-/* ---- 5. Hero lede over the photo ---- */
-.hero .lede{ font-size: clamp(1.14rem, 1.7vw, 1.3rem); color: rgba(255,255,255,.9); }
-body.lang-yi .hero .lede{ font-size: clamp(1.22rem, 2vw, 1.42rem); line-height: 1.85; }
-
-/* ---- 6. Stat labels under the big gold numbers ---- */
-.stat .lab { font-size: 1rem; line-height: 1.5; color: #645647; }
-body.lang-yi .stat .lab { font-size: 1.1rem; line-height: 1.65; }
-body.lang-yi .stat .num { font-size: clamp(2.1rem, 3.4vw, 2.65rem); min-height: 3.25rem; }
-
-/* ---- 7. Quick-give subtitle (focal CTA under hero) ---- */
-.quickgive .qg-sub{ font-size: 1.08rem; line-height: 1.6; color: #645647; }
-body.lang-yi .quickgive .qg-sub{ font-size: 1.16rem; line-height: 1.85; }
-
-/* ---- 8. Testimonial / inline body paragraphs that lean on undefined tokens ---- */
-.card p[style*="--text"]{ font-size: 1.12rem !important; line-height: 1.7; color: var(--ink) !important; }
-body.lang-yi .card p[style*="--text"]{ font-size: 1.2rem !important; line-height: 1.9; }
-p[style*="--muted"]{ color: var(--ink-soft) !important; font-size: 1.1rem; line-height: 1.7; }
-body.lang-yi p[style*="--muted"]{ font-size: 1.18rem; line-height: 1.9; }
-
-/* ---- 9. Quote block: translation, source, vocalized Hebrew verse ---- */
-.quote .tr{ font-size: 1.06rem; line-height: 1.6; }
-body.lang-yi .quote .tr{ font-size: 1.14rem; line-height: 1.85; }
-.quote .src{ font-size: 0.95rem; letter-spacing: 0; }
-.quote .heb{ font-size: 1.38rem; line-height: 1.95; letter-spacing: 0; }  /* room for nikud */
-
-/* ---- 10. Segula list (used on segulos/partner) ---- */
-.segula{ padding: 22px 24px; }
-.segula p{ font-size: 1.08rem; line-height: 1.7; color: #645647; }
-.segula .tag{ font-size: 1.26rem; line-height: 1.55; }
-body.lang-yi .segula p{ font-size: 1.18rem; line-height: 1.9; }
-
-/* ---- 11. Timeline / schedule descriptions (about page) ---- */
-.tline .what p{ font-size: 1.08rem; line-height: 1.65; color: #645647; }
-body.lang-yi .tline .what p{ font-size: 1.18rem; line-height: 1.9; }
-
-/* ---- 12. CTA band paragraph on navy ---- */
-.cta-band p{ font-size: clamp(1.1rem, 1.5vw, 1.22rem); color: rgba(255,255,255,.9); line-height: 1.7; }
-body.lang-yi .cta-band p{ font-size: clamp(1.2rem, 1.7vw, 1.32rem); line-height: 1.9; }
-
-/* ---- 13. Footer: bigger + stronger contrast on navy ---- */
-.foot a, .foot p{ font-size: 1.02rem; line-height: 1.65; color: rgba(255,255,255,.85); }
-body.lang-yi .foot a, body.lang-yi .foot p{ font-size: 1.12rem; line-height: 1.9; }
-.foot .copy{ font-size: 0.92rem; color: rgba(255,255,255,.72); }
-body.lang-yi .foot h4{ font-size: 1.45rem; line-height: 1.4; }
-
-/* ---- 14. Nav, language toggle, eyebrows, brand sub-line ---- */
-.nav-links a{ font-size: 1rem; color: #524839; }
-body.lang-yi .nav-links a{ font-size: 1.08rem; }
-.lang-toggle button{ font-size: 0.9rem; padding: 6px 14px; }
-body.lang-yi .lang-toggle button{ font-size: 0.98rem; }
-.eyebrow{ font-size: 0.82rem; letter-spacing: 0.2em; color: var(--gold-deep); }
-body.lang-yi .eyebrow{ font-size: 0.94rem; letter-spacing: 0; }
-.brand-text .brand-sub{ font-size: 0.8rem; letter-spacing: 0.14em; color: var(--gold-deep); }
-
-/* ---- 15. Tiers, contact, form labels (partner / contact, shared CSS) ---- */
-.tier .per{ font-size: 0.95rem; }
-.tier li{ font-size: 1.05rem; color: #645647; padding: 9px 0; }
-body.lang-yi .tier li{ font-size: 1.14rem; line-height: 1.85; }
-.info-line span{ font-size: 1rem; color: #645647; }
-.field label{ font-size: 0.95rem; color: #524839; font-weight: 500; }
-body.lang-yi .field label{ font-size: 1.05rem; }
-
-/* ---- 16. Emphasis weight so <strong> reads clearly at base weight 400 ---- */
-.prose p strong, p strong{ font-weight: 600; }
+/* ---- supplemental type (hero, leads, bilingual) ---- */
+.hero .lede { font-size: clamp(0.95rem, 1.35vw, 1.0625rem); color: rgba(255,255,255,.88); line-height: 1.65; }
+body.lang-yi .hero .lede { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.8; }
+.page-hero p { font-size: clamp(0.9375rem, 1.35vw, 1.025rem); max-width: 540px; }
+body.lang-yi .page-hero p { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.8; }
+body.lang-yi .stat .lab { font-size: var(--text-base); line-height: 1.65; }
+.quote .tr { font-size: var(--text-sm); line-height: 1.65; }
+body.lang-yi .quote .tr { font-size: var(--text-base); line-height: 1.8; }
+body.lang-yi .quote .heb { font-size: 1.3125rem; line-height: 1.9; }
+.segula p { font-size: var(--text-sm); line-height: 1.65; }
+body.lang-yi .segula p { font-size: var(--text-base); line-height: 1.8; }
+.tline .what p { font-size: var(--text-sm); line-height: 1.65; }
+body.lang-yi .tline .what p { font-size: var(--text-base); line-height: 1.8; }
+.tier li { font-size: var(--text-sm); color: var(--ink-soft); }
+body.lang-yi .tier li { font-size: var(--text-base); line-height: 1.8; }
+.info-line span { font-size: var(--text-sm); }
+.field label { font-size: var(--text-sm); color: var(--ink-soft); }
+body.lang-yi .field label { font-size: var(--text-base); }
+.cta-band p { font-size: var(--text-base); }
+body.lang-yi .cta-band p { font-size: 1.0625rem; line-height: 1.85; }
+.prose p strong, p strong { font-weight: 600; }
 
 /* =========================================================
    Accessibility & interaction polish
@@ -617,12 +601,6 @@ body.lang-yi .field label{ font-size: 1.05rem; }
   outline-offset: 3px;
 }
 
-.nav-links a.active {
-  color: var(--brown);
-  background: rgba(74, 52, 32, 0.06);
-  font-weight: 600;
-}
-
 .foot-cta {
   font-weight: 600;
   color: var(--gold-200) !important;
@@ -631,13 +609,13 @@ body.lang-yi .field label{ font-size: 1.05rem; }
 
 .card blockquote,
 .card .testimonial-quote {
-  font-size: 0.9375rem !important;
-  line-height: 1.6;
-  color: var(--ink) !important;
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--ink);
 }
 body.lang-yi .card .testimonial-quote {
-  font-size: 1rem !important;
-  line-height: 1.75;
+  font-size: 1.0625rem;
+  line-height: 1.8;
 }
 
 .cta-band .btn-ghost {
@@ -650,33 +628,8 @@ body.lang-yi .card .testimonial-quote {
   border-color: rgba(255, 255, 255, 0.75);
 }
 
-/* ---- overrides readability polish (keep text smaller) ---- */
-body { font-size: 0.9375rem; }
-.card p { font-size: 0.875rem !important; line-height: 1.6 !important; }
-body.lang-yi .card p { font-size: 0.9375rem !important; line-height: 1.75 !important; }
-.prose p { font-size: 0.9375rem !important; line-height: 1.65 !important; margin-bottom: 14px !important; }
-body.lang-yi .prose p { font-size: 1rem !important; line-height: 1.8 !important; }
-.page-hero p { font-size: clamp(0.9rem, 1.3vw, 0.975rem) !important; }
-.hero .lede { font-size: clamp(0.92rem, 1.3vw, 1rem) !important; }
-.stat .lab { font-size: 0.8125rem !important; }
-body.lang-yi .stat .lab { font-size: 0.875rem !important; }
-body.lang-yi .stat .num { font-size: clamp(1.5rem, 2.4vw, 1.85rem) !important; height: 2.25rem !important; }
-.quote .heb { font-size: 1.15rem !important; line-height: 1.75 !important; }
-.quote .tr { font-size: 0.875rem !important; }
-.segula p { font-size: 0.875rem !important; }
-.segula .tag { font-size: 1.05rem !important; }
-.cta-band p { font-size: 0.9375rem !important; }
-.foot a, .foot p { font-size: 0.875rem !important; }
-.foot h4 { font-size: 1.05rem !important; }
-.nav-links a { font-size: 0.875rem !important; }
-.eyebrow { font-size: 0.68rem !important; margin-bottom: 0.65rem !important; }
-body.lang-yi .eyebrow { font-size: 0.75rem !important; }
-.section-lead { font-size: 0.9375rem !important; }
-.tline .when { font-size: 1.25rem; }
-.tier li { font-size: 0.875rem !important; padding: 7px 0 !important; }
 .logo-card { box-shadow: none; padding: 20px 28px; min-height: 72px; transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
 .tax-id-card { padding: 24px 28px; border-radius: var(--radius); }
-.tax-id-card .tax-number { font-size: 1.75rem; }
 .reveal.reveal-pending { transform: translateY(8px); }
 
 /* ---- subtle hover on card-like blocks (site-wide) ---- */
