@@ -9,8 +9,8 @@
   z-index: 100;
   padding: 10px 18px;
   border-radius: 999px;
-  background: var(--brown);
-  color: #fff;
+  background: var(--brown-deep);
+  color: var(--ivory);
   font-weight: 600;
   font-size: 0.92rem;
   box-shadow: var(--shadow-lg);
@@ -90,6 +90,8 @@ section.wrap.section-stats-gap {
   padding: 12px 14px;
   border-radius: 11px;
   border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
   font: inherit;
 }
 .mailing-form .field-input:focus {
@@ -138,8 +140,9 @@ section.wrap.section-stats-gap {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .logo-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: rgba(177, 138, 67, 0.42);
+  box-shadow: 0 7px 20px rgba(51, 32, 24, 0.09);
 }
 .logo-card img { display: block; width: auto; }
 .logo-card--matbia img { height: 30px; }
@@ -148,8 +151,8 @@ section.wrap.section-stats-gap {
 .tax-id-card {
   max-width: 580px;
   margin: 0 auto;
-  background: var(--brown);
-  color: #fff;
+  background: var(--brown-deep);
+  color: var(--ivory);
   border-radius: 18px;
   padding: 30px 32px;
   text-align: center;
@@ -166,12 +169,12 @@ section.wrap.section-stats-gap {
   font-size: clamp(1.625rem, 3vw, 2rem);
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #fff;
+  color: var(--ivory);
   font-family: var(--font-ui);
   font-variant-numeric: tabular-nums lining-nums;
 }
 .tax-id-card .tax-note {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--ivory-muted);
   font-size: 0.97rem;
   margin-top: 12px;
   max-width: 440px;
