@@ -456,7 +456,7 @@ body.lang-yi .badge {
 }
 
 /* ---------- contact ---------- */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 4vw, 48px); align-items: start; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 40px); align-items: start; }
 .field { margin-bottom: 16px; }
 .field label { display: block; font-size: .85rem; color: var(--ink-soft); margin-bottom: 6px; }
 .field input, .field textarea, .field select {
@@ -464,10 +464,11 @@ body.lang-yi .badge {
   background: var(--card); border: 1px solid var(--line); color: var(--ink);
 }
 .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
-.info-line { display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
-.info-line .ic { color: var(--gold-deep); font-size: 1.3rem; }
-.info-line b { color: var(--brown); display: block; }
-.info-line span { color: var(--ink-soft); font-size: .92rem; }
+.info-line { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.info-line:last-of-type { border-bottom: 0; }
+.info-line .ic { color: var(--gold-deep); font-size: 1.3rem; line-height: 1.2; margin-top: 2px; }
+.info-line b { color: var(--brown); display: block; margin-bottom: 2px; }
+.info-line > span:last-child { color: var(--ink-soft); font-size: .92rem; }
 
 /* ---------- interior page hero ---------- */
 .page-hero {

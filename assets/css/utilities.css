@@ -41,6 +41,36 @@
 .section-lead--md { max-width: 680px; margin: 12px auto 0; }
 .section-lead--lg { max-width: 760px; margin: 14px auto 0; }
 .section-lead--contact { margin: 12px 0 28px; max-width: none; }
+
+.partner-form .field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.partner-form .field { margin-bottom: 10px; }
+.partner-form .field label {
+  margin-bottom: 4px;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+.partner-form input,
+.partner-form select,
+.partner-form textarea {
+  padding: 9px 12px;
+  border-radius: var(--radius);
+  font-size: 0.9375rem;
+}
+.partner-form textarea {
+  min-height: 4.25rem;
+  resize: vertical;
+}
+.partner-form .btn-block { margin-top: 6px; }
+.info-address { display: block; line-height: 1.5; margin-top: 2px; }
+.info-line a { color: var(--ink-soft); }
+.info-line a:hover { color: var(--gold-deep); }
+@media (max-width: 620px) {
+  .partner-form .field-row { grid-template-columns: 1fr; gap: 0; }
+}
 body.lang-yi .section-lead { font-size: 1.0625rem; line-height: 1.8; }
 
 /* Hero → quickgive → stats band */

@@ -209,49 +209,53 @@
 
           <div class="info-line">
             <span class="ic">✆</span>
-            <span><b><span class="en">Phone</span><span class="yi">טעלעפאן</span></b><span>(000) 000-0000</span></span>
+            <span><b><span class="en">Phone</span><span class="yi">טעלעפאן</span></b><span dir="ltr"><a href="tel:+17189265415">(718) 926-5415</a></span></span>
           </div>
           <div class="info-line">
             <span class="ic">✉</span>
-            <span><b><span class="en">Email</span><span class="yi">אימעיל</span></b><span>info@kollelchatzos.org</span></span>
+            <span><b><span class="en">Email</span><span class="yi">אימעיל</span></b><span><a href="mailto:info@kollelchatzos.org">info@kollelchatzos.org</a></span></span>
           </div>
           <div class="info-line">
             <span class="ic">⌖</span>
-            <span><b><span class="en">Beis Medrash</span><span class="yi">בית המדרש</span></b><span>Brooklyn, NY</span></span>
+            <span><b><span class="en">Beis Medrash</span><span class="yi">בית המדרש</span></b><span class="info-address" dir="ltr">5504 16th Ave<br>Brooklyn, NY 11204</span></span>
           </div>
         </div>
 
-        <form id="partner-form-el">
-          <div class="field">
-            <label><span class="en">Full name</span><span class="yi">פולע נאמען</span></label>
-            <input type="text" name="name" required />
+        <form id="partner-form-el" class="partner-form">
+          <div class="field-row">
+            <div class="field">
+              <label><span class="en">Full name</span><span class="yi">פולע נאמען</span></label>
+              <input type="text" name="name" required />
+            </div>
+            <div class="field">
+              <label><span class="en">Hebrew name (for the tefillah)</span><span class="yi">נאמען (פאר די תפילה)</span></label>
+              <input type="text" name="hebname" />
+            </div>
           </div>
-          <div class="field">
-            <label><span class="en">Hebrew name (for the tefillah)</span><span class="yi">נאמען (פאר די תפילה)</span></label>
-            <input type="text" name="hebname" />
-          </div>
-          <div class="field">
-            <label><span class="en">Phone or email</span><span class="yi">טעלעפאן אדער אימעיל</span></label>
-            <input type="text" name="contact" required />
-          </div>
-          <div class="field">
-            <label><span class="en">Partnership</span><span class="yi">שותפות</span></label>
-            <select name="tier">
-              <option>Individual — $36</option>
-              <option>Chatzos Partnership — $180</option>
-              <option>Yissachar–Zevulun — $360 / month</option>
-              <option>Kollel Sponsor — $720</option>
-              <option>Segulah dedication (refuah / parnassah / shidduch…)</option>
-              <option>Simcha dedication (wedding / bar mitzvah…)</option>
-              <option>Other / לזכר נשמת</option>
-            </select>
+          <div class="field-row">
+            <div class="field">
+              <label><span class="en">Phone or email</span><span class="yi">טעלעפאן אדער אימעיל</span></label>
+              <input type="text" name="contact" required />
+            </div>
+            <div class="field">
+              <label><span class="en">Partnership</span><span class="yi">שותפות</span></label>
+              <select name="tier">
+                <option>Individual — $36</option>
+                <option>Chatzos Partnership — $180</option>
+                <option>Yissachar–Zevulun — $360 / month</option>
+                <option>Kollel Sponsor — $720</option>
+                <option>Segulah dedication (refuah / parnassah / shidduch…)</option>
+                <option>Simcha dedication (wedding / bar mitzvah…)</option>
+                <option>Other / לזכר נשמת</option>
+              </select>
+            </div>
           </div>
           <div class="field">
             <label><span class="en">A note or dedication</span><span class="yi">לייגט צו א נאטיץ אדער הקדשה</span></label>
-            <textarea name="note" rows="3"></textarea>
+            <textarea name="note" rows="2"></textarea>
           </div>
           <button type="submit" class="btn btn-gold btn-block"><span class="en">Send · be remembered tonight ✦</span><span class="yi">שיק ארויס · ווערט דערמאנט היינט נאכט ✦</span></button>
-          <p id="form-note" class="form-note" id="form-note"><span class="en">Thank you! The hanhalah will be in touch. Tizku l'mitzvos.</span><span class="yi">א דאנק! די הנהלה וועט זיך פארבינדן. תזכו למצוות.</span></p>
+          <p id="form-note" class="form-note"><span class="en">Thank you! The hanhalah will be in touch. Tizku l'mitzvos.</span><span class="yi">א דאנק! די הנהלה וועט זיך פארבינדן. תזכו למצוות.</span></p>
         </form>
       </div>
     </div>
