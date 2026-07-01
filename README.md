@@ -1,79 +1,90 @@
 # Kollel Chatzos · נקודת חצות
 
-A bilingual (English / Yiddish) promotional website for **Kollel Chatzos — Nekudas Chatzos**, the Brooklyn kollel whose chashuva young men learn Torah every night from *chatzos* until *alos hashachar* — illuminating and safeguarding Brooklyn.
+Bilingual marketing site + lightweight backend for **Kollel Chatzos — Nekudas Chatzos**.
 
-**Live site:** [lucidquestor.github.io/kollel-chatzos](https://lucidquestor.github.io/kollel-chatzos/)
+**Live:** [kollel-chatzos.vercel.app](https://kollel-chatzos.vercel.app/)
 
-## Should this be Next.js?
+## Stack
 
-**Not right now.** This is a 4-page static marketing site with no database, auth, or dynamic content. Plain HTML + shared assets gives you:
+| Layer | Choice |
+|-------|--------|
+| Frontend | Static HTML, CSS, vanilla JS |
+| Hosting | Vercel (static + serverless `/api/*`) |
+| Database | [Supabase](https://supabase.com) (Postgres) |
+| Email | [Resend](https://resend.com) — optional, add later |
 
-- Free hosting on GitHub Pages (already set up)
-- Zero build step — edit and push
-- Fast loads, no JavaScript framework overhead
+## Features
 
-Consider **Next.js** later only if you need things like: a blog, admin CMS, user accounts, payment API routes, or complex interactive features. A lighter middle ground would be **Eleventy (11ty)** if you want components/templates without React.
+- **Dedication modal** — name + occasion saved *before* redirect to FirstAccept
+- **Partner & mailing forms** → Supabase (email via Resend when configured)
+- **Chatzos clock** — tonight’s chatzos & alos for Brooklyn (Hebcal zmanim)
+- **OG tags** — rich previews when shared on WhatsApp / iMessage
+- **FAQ** on Partner page
+- EN / Yiddish toggle with RTL
 
-## Project structure
+## Setup
 
+### 1. Supabase
+
+1. Create a project at [supabase.com](https://supabase.com)
+2. Open **SQL Editor** and run [`supabase/schema.sql`](supabase/schema.sql)
+3. Copy **Project URL** and **service_role** key (Settings → API)
+
+### 2. Vercel environment variables
+
+| Variable | Required | Notes |
+|----------|----------|-------|
+| `SUPABASE_URL` | Yes | `https://xxx.supabase.co` |
+| `SUPABASE_SERVICE_ROLE_KEY` | Yes | Server-side only — never expose in browser |
+| `RESEND_API_KEY` | No | Add when ready for email |
+| `EMAIL_FROM` | No | Verified sender in Resend |
+| `PARTNER_INBOX_EMAIL` | No | Defaults with Resend |
+| `MAILING_INBOX_EMAIL` | No | Defaults with Resend |
+
+Redeploy after adding variables.
+
+### 3. Local development
+
+```bash
+npm install
+cp .env.example .env.local   # fill in Supabase keys
+npx vercel dev                 # static pages + /api routes
 ```
-kollel-chatzos/
-├── index.html                 # Home
-├── about.html                 # The Kollel
-├── segulos.html               # Segulos & maalos
-├── partner.html               # Partner / donate
-├── assets/
-│   ├── css/
-│   │   ├── main.css           # Theme & components
-│   │   └── utilities.css      # Layout helpers (no inline styles)
-│   ├── js/
-│   │   ├── lang-init.js       # Applies saved language before first paint
-│   │   └── main.js            # Language, nav, forms, scroll reveals
-│   ├── partials/
-│   │   ├── nav.html           # Nav template (sync with scripts/fix-blink.js)
-│   │   └── footer.html
-│   ├── images/
-│   └── icons/
-└── scripts/                   # Optional HTML maintenance scripts
-```
 
-Nav and footer are inlined in each HTML page (fast, no fetch blink). Edit `assets/partials/` then run `node scripts/fix-blink.js` to sync all pages.
-
-## Pages
-
-| Page | English | Yiddish |
-|------|---------|---------|
-| `index.html` | Home — hero, mission, three pillars | היים |
-| `about.html` | The Kollel — seder, 24-hour cycle | דער כולל |
-| `segulos.html` | Segulos & maalos of chatzos | סגולות |
-| `partner.html` | Become a Partner — tiers + contact | ווערט א שותף |
-
-## Language toggle
-
-The **EN / א** toggle switches all content and RTL layout for Yiddish. Preference is saved in `localStorage`.
-
-## Running locally
-
-The shared nav/footer load via `fetch`, so use a local server (not `file://`):
+Plain static preview (no API):
 
 ```bash
 python -m http.server 8000
-# visit http://localhost:8000
 ```
 
-## Deploying
+## API routes
 
-**GitHub Pages** (already configured): push to `main` — live at [lucidquestor.github.io/kollel-chatzos](https://lucidquestor.github.io/kollel-chatzos/).
+| Route | Method | Purpose |
+|-------|--------|---------|
+| `/api/dedication` | POST | Save donate dedication → Supabase |
+| `/api/partner` | POST | Partner form → Supabase (+ Resend if set) |
+| `/api/mailing` | POST | Mailing signup → Supabase (+ Resend if set) |
+| `/api/zmanim` | GET | Tonight’s chatzos / alos (Brooklyn) |
 
-**Vercel:** connect the repo; no build command needed. Static files deploy from the root (`vercel.json` enables clean URLs like `/about` instead of `/about.html`).
+## Database tables
+
+- `dedications` — pre-payment name / occasion / amount
+- `partner_inquiries` — contact form
+- `mailing_subscribers` — email list
+
+View data in Supabase **Table Editor** until an admin UI is built.
+
+## Deploy
 
 ```bash
 git push origin main
 ```
 
-## Notes
+Vercel runs `npm install` for API dependencies automatically.
 
-- Replace placeholder phone/email on the Partner page with real kollel details.
-- Connect the contact form to Formspree, Netlify Forms, etc. when ready.
+## Roadmap
 
-*Content adapted from the kollel's flyers and the liqut on the maalos of kimas chatzos.*
+- Admin page to browse dedications
+- Resend for hanhalah notifications + welcome emails
+- Custom domain + update `og:url` / sitemap URLs
+- Matbia / Pledger deep links

@@ -7,6 +7,12 @@
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Kollel Chatzos" />
+  <meta property="og:title" content="Become a Partner · Kollel Chatzos" />
+  <meta property="og:description" content="Partner in the limud haTorah at chatzos. Dedicate a night, sponsor the kollel, and be remembered in the eis ratzon." />
+  <meta property="og:image" content="https://kollel-chatzos.vercel.app/assets/images/hero-partner.png" />
+  <meta property="og:url" content="https://kollel-chatzos.vercel.app/partner" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://kollel-chatzos.vercel.app/partner" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png" />
   <meta name="theme-color" content="#332018" />
@@ -50,6 +56,14 @@
     <p class="eyebrow"><span class="en">Become a Partner</span><span class="yi">ווערט א שותף</span></p>
     <h1><span class="en">Yissachar &amp; Zevulun</span><span class="yi">יששכר וזבולון</span></h1>
     <p><span class="en">You now have the golden opportunity of becoming a partner in this sublime mitzvah. The chashuva young men will have you and your family in mind — that all your deepest wishes and requests be fulfilled.</span><span class="yi">איר האט יעצט א גאלדענע געלעגנהייט צו ווערן א שותף אין די דאזיגע הייליגע מצוה. די חשוב'ע יונגעלייט וועלן אייך און אייער משפחה האבן אינזין און מתפלל זיין אז אלע אייערע טיפסטע בקשות און הארץ-ווינטשן זאלן נתקבל ווערן לרחמים ולרצון.</span></p>
+    <div class="zmanim-clock zmanim-clock--page" id="zmanim-clock" hidden aria-live="polite">
+      <div class="zmanim-clock__inner">
+        <span class="zmanim-clock__label"><span class="en">Tonight · Brooklyn</span><span class="yi">היינט · ברוקלין</span></span>
+        <span><span class="en">Chatzos</span><span class="yi">חצות</span> <strong data-zman="chatzot">—</strong></span>
+        <span class="zmanim-clock__sep" aria-hidden="true">·</span>
+        <span><span class="en">Alos</span><span class="yi">עלות</span> <strong data-zman="alos">—</strong></span>
+      </div>
+    </div>
    </div>
   </section>
 
@@ -90,7 +104,7 @@
           <li><span class="en">Your name in the tefillah at the eis ratzon</span><span class="yi">אייער נאמען וועט דערמאנט ווערן ביי די תפילות אין די עת רצון</span></li>
           <li><span class="en">For a refuah, yeshuah or yahrtzeit</span><span class="yi">ספעציעל פאר א רפואה, ישועה, אדער פאר א יארצייט</span></li>
         </ul>
-        <a href="https://www.firstaccept.net/HANETZACH?amount=36" target="_blank" rel="noopener" class="btn btn-ghost"><span class="en">Donate $36</span><span class="yi">נדבה $36</span></a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=36" data-donate-amount="36" class="btn btn-ghost js-donate"><span class="en">Donate $36</span><span class="yi">נדבה $36</span></a>
       </div>
       <div class="card tier reveal">
         <h3><span class="en">Chatzos Partnership</span><span class="yi">שותף חצות</span></h3>
@@ -100,7 +114,7 @@
           <li><span class="en">A whole night of limud in your name</span><span class="yi">א גאנצע נאכט פון הייליגע לימוד התורה געווידמעט אויף אייער נאמען</span></li>
           <li><span class="en">You and your family held in mind</span><span class="yi">איר און אייער גאנצע משפחה וועט ווערן דערמאנט ביי די תפילות</span></li>
         </ul>
-        <a href="https://www.firstaccept.net/HANETZACH?amount=180" target="_blank" rel="noopener" class="btn btn-ghost"><span class="en">Donate $180</span><span class="yi">נדבה $180</span></a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=180" data-donate-amount="180" class="btn btn-ghost js-donate"><span class="en">Donate $180</span><span class="yi">נדבה $180</span></a>
       </div>
       <div class="card tier feat reveal">
         <span class="badge"><span class="en">Most chosen</span><span class="yi">דאס מערסטע אויסגעוועלט</span></span>
@@ -111,7 +125,7 @@
           <li><span class="en">An equal share in every word learned</span><span class="yi">א חלק גלייך אויף גלייך אין יעדע ווארט תורה וואס ווערט געלערנט</span></li>
           <li><span class="en">Davened for every night, all year</span><span class="yi">מען וועט מתפלל זיין פאר אייך יעדע נאכט דורכאויס דעם גאנצן יאר</span></li>
         </ul>
-        <a href="https://www.firstaccept.net/HANETZACH?amount=360" target="_blank" rel="noopener" class="btn btn-gold"><span class="en">Donate $360</span><span class="yi">נדבה $360</span></a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=360" data-donate-amount="360" class="btn btn-gold js-donate"><span class="en">Donate $360</span><span class="yi">נדבה $360</span></a>
       </div>
       <div class="card tier reveal">
         <h3><span class="en">Kollel Sponsor</span><span class="yi">ספאנסארט די נאכט</span></h3>
@@ -121,19 +135,19 @@
           <li><span class="en">Sustain the lomdim of an entire night</span><span class="yi">האלט אויס די תלמידי חכמים (לומדים) פאר א גאנצע נאכט</span></li>
           <li><span class="en">Dedication plaque &amp; special tefillah</span><span class="yi">א ספעציעלע "הקדשה טאוול" און א ספעציעלע תפילה</span></li>
         </ul>
-        <a href="https://www.firstaccept.net/HANETZACH?amount=720" target="_blank" rel="noopener" class="btn btn-ghost"><span class="en">Donate $720</span><span class="yi">געבט $720</span></a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=720" data-donate-amount="720" class="btn btn-ghost js-donate"><span class="en">Donate $720</span><span class="yi">געבט $720</span></a>
       </div>
     </div>
     <div class="center amount-section">
       <p class="amount-row-intro"><span class="en">Or give any amount — every dollar partners you with the Kollel:</span><span class="yi">אדער שטיצט מיט סיי וועלכע סכום — יעדער דאלאר פארבינדט אייך מיטן כולל:</span></p>
       <div class="amount-row">
-        <a href="https://www.firstaccept.net/HANETZACH?amount=36" target="_blank" rel="noopener" class="btn btn-ghost">$36</a>
-        <a href="https://www.firstaccept.net/HANETZACH?amount=72" target="_blank" rel="noopener" class="btn btn-ghost">$72</a>
-        <a href="https://www.firstaccept.net/HANETZACH?amount=180" target="_blank" rel="noopener" class="btn btn-ghost">$180</a>
-        <a href="https://www.firstaccept.net/HANETZACH?amount=250" target="_blank" rel="noopener" class="btn btn-ghost">$250</a>
-        <a href="https://www.firstaccept.net/HANETZACH?amount=360" target="_blank" rel="noopener" class="btn btn-ghost">$360</a>
-        <a href="https://www.firstaccept.net/HANETZACH?amount=720" target="_blank" rel="noopener" class="btn btn-ghost">$720</a>
-        <a href="https://www.firstaccept.net/HANETZACH" target="_blank" rel="noopener" class="btn btn-gold"><span class="en">Other amount</span><span class="yi">אנדערע סכום</span></a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=36" data-donate-amount="36" class="btn btn-ghost js-donate">$36</a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=72" data-donate-amount="72" class="btn btn-ghost js-donate">$72</a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=180" data-donate-amount="180" class="btn btn-ghost js-donate">$180</a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=250" data-donate-amount="250" class="btn btn-ghost js-donate">$250</a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=360" data-donate-amount="360" class="btn btn-ghost js-donate">$360</a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=720" data-donate-amount="720" class="btn btn-ghost js-donate">$720</a>
+        <a href="https://www.firstaccept.net/HANETZACH" class="btn btn-gold js-donate"><span class="en">Other amount</span><span class="yi">אנדערע סכום</span></a>
       </div>
     </div>
   </section>
@@ -198,6 +212,32 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="wrap">
+    <div class="center reveal section-header">
+      <p class="eyebrow"><span class="en">Common questions</span><span class="yi">א частe שאלות</span></p>
+      <h2 class="section-title"><span class="en">Before you partner</span><span class="yi">פאר איר ווערט א שותף</span></h2>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary><span class="en">When will the lomdim daven for me?</span><span class="yi">ווען וועלן די לומדים מתפלל זיין פאר מיר?</span></summary>
+        <p><span class="en">For a night dedication, your name is held in mind during the eis ratzon from chatzos until alos hashachar that night. Monthly partners are remembered throughout the year.</span><span class="yi">פאר א נאכט-הקדשה, ווערט אייער נאמען דערמאנט ביי די תפילות צווישן חצות און עלות השחר. חודש'liche שותפים ווערן דערמאנט דורכאויס דאס גאנצע יאר.</span></p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="en">Is my donation tax-deductible?</span><span class="yi">איז מיין נדבה tax-deductible?</span></summary>
+        <p><span class="en">Yes. Kollel Chatzos is a registered nonprofit. Use Tax ID (EIN) <span dir="ltr">881313826</span> for Matbia, Pledger, or your records.</span><span class="yi">יא. כולל חצות איז א רעגיסטרירטע organization. באניצט טעקס נומער (EIN) <span dir="ltr">881313826</span> אין מטבע, פלעדזשער, אדער אייערע records.</span></p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="en">What should I write for a refuah or simcha?</span><span class="yi">וואס זאל איך שreibן פאר א רפואה אדער שמחה?</span></summary>
+        <p><span class="en">Include the Hebrew name for tefillah, the occasion, and any brief note — e.g. refuah sheleimah for …, or a wedding / bar mitzvah date.</span><span class="yi">לייגט אריין דעם נאמען לתפילה, די סיבה, און א קיצרע נאטיץ — למשל רפואה שלימה פאר…, אדער א חתונה / בר מצוה טאג.</span></p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="en">Can I partner monthly?</span><span class="yi">קען איך זיין א שותף יעדן חודש?</span></summary>
+        <p><span class="en">Yes — the Yissachar–Zevulun tier ($360/month) gives you a share in every word of Torah learned each night. Contact hanhalah to set up recurring giving.</span><span class="yi">יא — דער "יששכר–זבולון" ($360/חודש) גיט אייך א חלק אין יעדע ווארט תורה. פאר recurring giving, פארבינדט זיך מיט די הנהלה.</span></p>
+      </details>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="wrap" id="partner-form">
     <div class="panel reveal">
@@ -217,7 +257,7 @@
           </div>
           <div class="info-line">
             <span class="ic">⌖</span>
-            <span><b><span class="en">Beis Medrash</span><span class="yi">בית המדרש</span></b><span class="info-address" dir="ltr">5504 16th Ave<br>Brooklyn, NY 11204</span></span>
+            <span><b><span class="en">Beis Medrash</span><span class="yi">בית המדרש</span></b><span class="info-address" dir="ltr"><a href="https://www.google.com/maps/search/?api=1&amp;query=5504+16th+Ave,+Brooklyn,+NY+11204" target="_blank" rel="noopener">5504 16th Ave<br>Brooklyn, NY 11204</a></span></span>
           </div>
         </div>
 
@@ -261,8 +301,13 @@
             <label><span class="en">A note or dedication</span><span class="yi">לייגט צו א נאטיץ אדער הקדשה</span></label>
             <textarea name="note" rows="2"></textarea>
           </div>
+          <div class="field-honeypot" aria-hidden="true">
+            <label>Leave blank</label>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
           <button type="submit" class="btn btn-gold btn-block"><span class="en">Send · be remembered tonight ✦</span><span class="yi">שיק ארויס · ווערט דערמאנט היינט נאכט ✦</span></button>
-          <p id="form-note" class="form-note"><span class="en">Thank you! The hanhalah will be in touch. Tizku l'mitzvos.</span><span class="yi">א דאנק! די הנהלה וועט זיך פארבינדן. תזכו למצוות.</span></p>
+          <p id="form-success" class="form-feedback form-feedback--success"><span class="en">Thank you! The hanhalah will be in touch. Tizku l'mitzvos.</span><span class="yi">א דאנק! די הנהלה וועט זיך פארבינדן. תזכו למצוות.</span></p>
+          <p id="form-error" class="form-feedback form-feedback--error"><span class="en">Something went wrong. Please try again or call (718) 926-5415.</span><span class="yi">עפעס איז נישט אויסגעקומען. פרובירט noch א mol אדער רופט (718) 926-5415.</span></p>
         </form>
       </div>
     </div>

@@ -7,6 +7,12 @@
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Kollel Chatzos" />
+  <meta property="og:title" content="Kollel Chatzos · Nekudas Chatzos — Illuminating Brooklyn" />
+  <meta property="og:description" content="Chashuva young men learning Torah every night from chatzos until alos hashachar. Become a partner in the limud." />
+  <meta property="og:image" content="https://kollel-chatzos.vercel.app/assets/images/hero-home.png" />
+  <meta property="og:url" content="https://kollel-chatzos.vercel.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://kollel-chatzos.vercel.app/" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png" />
   <meta name="theme-color" content="#332018" />
@@ -63,6 +69,14 @@
       <a href="partner.html" class="btn btn-gold"><span class="en">Become a Partner ✦</span><span class="yi">✦ ווערט א שותף</span></a>
       <a href="about.html" class="btn btn-ghost"><span class="en">What We Do</span><span class="yi">אונזער שליחות</span></a>
     </div>
+    <div class="zmanim-clock" id="zmanim-clock" hidden aria-live="polite">
+      <div class="zmanim-clock__inner">
+        <span class="zmanim-clock__label"><span class="en">Tonight · Brooklyn</span><span class="yi">היינט · ברוקלין</span></span>
+        <span><span class="en">Chatzos</span><span class="yi">חצות</span> <strong data-zman="chatzot">—</strong></span>
+        <span class="zmanim-clock__sep" aria-hidden="true">·</span>
+        <span><span class="en">Alos</span><span class="yi">עלות</span> <strong data-zman="alos">—</strong></span>
+      </div>
+    </div>
    </div>
   </section>
 
@@ -74,9 +88,9 @@
         <p class="qg-sub"><span class="en">Partner with the lomdim in one click — for a refuah, yeshuah, or as a zechus.</span><span class="yi">ווערט א שותף מיט די לומדים אין איין קליק — פאר א רפואה, ישועה, אדער אלס א זכות.</span></p>
       </div>
       <div class="qg-actions">
-        <a href="https://www.firstaccept.net/HANETZACH?amount=36" target="_blank" rel="noopener" class="qg-pill">$36</a>
-        <a href="https://www.firstaccept.net/HANETZACH?amount=180" target="_blank" rel="noopener" class="qg-pill">$180</a>
-        <a href="https://www.firstaccept.net/HANETZACH?amount=360" target="_blank" rel="noopener" class="qg-pill">$360</a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=36" data-donate-amount="36" class="qg-pill js-donate">$36</a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=180" data-donate-amount="180" class="qg-pill js-donate">$180</a>
+        <a href="https://www.firstaccept.net/HANETZACH?amount=360" data-donate-amount="360" class="qg-pill js-donate">$360</a>
         <a href="partner.html" class="btn btn-gold"><span class="en">Become a Partner ✦</span><span class="yi">✦ ווערט א שותף</span></a>
       </div>
     </div>
@@ -218,9 +232,14 @@
       <h2 class="section-title section-title-md"><span class="en">Join our mailing list</span><span class="yi">שרייבט אייך איין אין אונזער אימעיל ליסטע</span></h2>
       <p class="section-lead section-lead--sm"><span class="en">Updates from the kollel, divrei chizuk, and times to have your name in mind at chatzos.</span><span class="yi">באקומט כסדר'דיגע נייעס פונעם כולל, דברי חיזוק, און די צייטן ווען מען וועט דערמאנען אייער נאמען ביי חצות.</span></p>
       <form class="mailing-form">
-        <input type="email" required placeholder="you@email.com" class="field-input" />
+        <input type="email" name="email" required placeholder="you@email.com" class="field-input" />
         <button type="submit" class="btn btn-gold"><span class="en">Subscribe</span><span class="yi">שרייבט אייך איין</span></button>
-        <p class="ml-note"><span class="en">Thank you — you're on the list. Tizku l'mitzvos.</span><span class="yi">א דאנק — איר זענט אויף די ליסטע. תזכו למצוות.</span></p>
+        <div class="field-honeypot" aria-hidden="true">
+          <label>Leave blank</label>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+        </div>
+        <p class="form-feedback form-feedback--success ml-note"><span class="en">Thank you — you're on the list. Tizku l'mitzvos.</span><span class="yi">א דאנק — איר זענט אויף די ליסטע. תזכו למצוות.</span></p>
+        <p class="form-feedback form-feedback--error ml-error"><span class="en">Something went wrong. Please try again.</span><span class="yi">עפעס איז נישט אויסגעקומען. פרובירט noch א mol.</span></p>
       </form>
     </div>
   </section>

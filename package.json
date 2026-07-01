@@ -1,0 +1,13 @@
+{
+  "name": "kollel-chatzos",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "favicons": "node scripts/make-favicons.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
+    "resend": "^4.5.1"
+  }
+}

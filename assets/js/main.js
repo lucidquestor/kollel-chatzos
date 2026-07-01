@@ -203,15 +203,69 @@
     });
   }
 
+  function formDataToObject(form) {
+    var data = {};
+    new FormData(form).forEach(function (value, key) {
+      data[key] = value;
+    });
+    return data;
+  }
+
+  function setFormFeedback(form, successEl, errorEl, state) {
+    if (successEl) successEl.classList.toggle('is-visible', state === 'success');
+    if (errorEl) errorEl.classList.toggle('is-visible', state === 'error');
+  }
+
+  function setSubmitLoading(form, loading) {
+    var btn = form.querySelector('[type="submit"]');
+    if (!btn) return;
+    btn.classList.toggle('is-loading', loading);
+    btn.disabled = loading;
+  }
+
+  function submitToApi(form, endpoint, onSuccess) {
+    var successEl = form.querySelector('.form-feedback--success, .ml-note');
+    var errorEl = form.querySelector('.form-feedback--error, .ml-error');
+
+    setFormFeedback(form, successEl, errorEl, null);
+    setSubmitLoading(form, true);
+
+    return fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.assign(formDataToObject(form), {
+        lang: document.documentElement.getAttribute('lang') || 'en',
+      })),
+    })
+      .then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (body) {
+          if (!res.ok || !body.ok) {
+            throw new Error(body.error || 'Request failed');
+          }
+          return body;
+        });
+      })
+      .then(function () {
+        form.reset();
+        if (onSuccess) onSuccess();
+        setFormFeedback(form, successEl, errorEl, 'success');
+      })
+      .catch(function () {
+        setFormFeedback(form, successEl, errorEl, 'error');
+      })
+      .finally(function () {
+        setSubmitLoading(form, false);
+      });
+  }
+
   function initPartnerForm() {
     var form = document.getElementById('partner-form-el');
     if (!form) return;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var note = document.getElementById('form-note');
-      if (note) note.style.display = 'block';
-      form.reset();
-      document.querySelectorAll('.custom-select').forEach(syncCustomSelect);
+      submitToApi(form, '/api/partner', function () {
+        document.querySelectorAll('.custom-select').forEach(syncCustomSelect);
+      });
     });
     form.addEventListener('reset', function () {
       setTimeout(function () {
@@ -224,9 +278,7 @@
     document.querySelectorAll('.mailing-form').forEach(function (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        var note = form.querySelector('.ml-note');
-        if (note) note.style.display = 'block';
-        form.reset();
+        submitToApi(form, '/api/mailing');
       });
     });
   }
@@ -249,6 +301,189 @@
     });
   }
 
+  var DONATE_BASE = 'https://www.firstaccept.net/HANETZACH';
+
+  function donateUrl(amount) {
+    if (!amount) return DONATE_BASE;
+    return DONATE_BASE + '?amount=' + encodeURIComponent(String(amount));
+  }
+
+  function formatZmanTime(iso) {
+    return new Date(iso).toLocaleTimeString(undefined, {
+      hour: 'numeric',
+      minute: '2-digit',
+    });
+  }
+
+  function initZmanimClock() {
+    var root = document.getElementById('zmanim-clock');
+    if (!root) return;
+
+    fetch('/api/zmanim')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (!data.ok) throw new Error('zmanim failed');
+        var chatzotEl = root.querySelector('[data-zman="chatzot"]');
+        var alosEl = root.querySelector('[data-zman="alos"]');
+        if (chatzotEl) chatzotEl.textContent = formatZmanTime(data.chatzot);
+        if (alosEl) alosEl.textContent = formatZmanTime(data.alos);
+        root.hidden = false;
+        root.classList.add('is-ready');
+      })
+      .catch(function () {
+        root.remove();
+      });
+  }
+
+  function initDedicationModal() {
+    var triggers = document.querySelectorAll('.js-donate');
+    if (!triggers.length) return;
+
+    var modal = document.createElement('div');
+    modal.className = 'dedication-modal';
+    modal.id = 'dedication-modal';
+    modal.hidden = true;
+    modal.innerHTML = [
+      '<div class="dedication-modal__backdrop" data-close></div>',
+      '<div class="dedication-modal__panel" role="dialog" aria-modal="true" aria-labelledby="dedication-modal-title">',
+      '  <button type="button" class="dedication-modal__close" data-close aria-label="Close">&times;</button>',
+      '  <p class="eyebrow"><span class="en">Dedicate tonight</span><span class="yi">ווידמעט די נאכט</span></p>',
+      '  <h2 id="dedication-modal-title" class="section-title section-title-md">',
+      '    <span class="en">Name for tefillah at chatzos</span>',
+      '    <span class="yi">נאמען פאר תפילה ביי חצות</span>',
+      '  </h2>',
+      '  <p class="section-lead section-lead--sm dedication-modal__lead">',
+      '    <span class="en">The lomdim will have you in mind tonight. Then continue to complete your donation.</span>',
+      '    <span class="yi">די לומדים וועלן אייך דערמאנען היינט ביי חצות. דערנאך גייט ווייטער צום באצalen.</span>',
+      '  </p>',
+      '  <form id="dedication-form" class="dedication-form">',
+      '    <input type="hidden" name="amount" id="dedication-amount" />',
+      '    <input type="hidden" name="source" value="donate_modal" />',
+      '    <div class="field-row">',
+      '      <div class="field">',
+      '        <label><span class="en">Full name</span><span class="yi">פולע נאמען</span></label>',
+      '        <input type="text" name="name" required />',
+      '      </div>',
+      '      <div class="field">',
+      '        <label><span class="en">Hebrew name</span><span class="yi">נאמען לתפילה</span></label>',
+      '        <input type="text" name="hebrew_name" />',
+      '      </div>',
+      '    </div>',
+      '    <div class="field">',
+      '      <label><span class="en">Occasion</span><span class="yi">סיבה / זכות</span></label>',
+      '      <select name="occasion">',
+      '        <option value="">Choose…</option>',
+      '        <option>Refuah</option>',
+      '        <option>Parnassah</option>',
+      '        <option>Shidduch</option>',
+      '        <option>Simcha</option>',
+      '        <option>L\'zecher nishmas</option>',
+      '        <option>General zechus</option>',
+      '      </select>',
+      '    </div>',
+      '    <div class="field">',
+      '      <label><span class="en">Note (optional)</span><span class="yi">נאטיץ (אפציונעל)</span></label>',
+      '      <textarea name="note" rows="2"></textarea>',
+      '    </div>',
+      '    <div class="field-honeypot" aria-hidden="true">',
+      '      <label>Leave blank</label>',
+      '      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />',
+      '    </div>',
+      '    <p class="dedication-modal__amount"><span class="en">Donation</span><span class="yi">נדבה</span>: <strong id="dedication-amount-label"></strong></p>',
+      '    <button type="submit" class="btn btn-gold btn-block">',
+      '      <span class="en">Save &amp; continue to donate ✦</span>',
+      '      <span class="yi">אפגעשפארט &amp; ווייטער צום באצalen ✦</span>',
+      '    </button>',
+      '    <button type="button" class="btn btn-ghost btn-block dedication-modal__skip" data-skip>',
+      '      <span class="en">Skip — donate without note</span>',
+      '      <span class="yi">איבerspringen — נאר באצalen</span>',
+      '    </button>',
+      '    <p class="form-feedback form-feedback--error dedication-modal__error">',
+      '      <span class="en">Could not save. You can still donate — or try again.</span>',
+      '      <span class="yi">עס איז נישט געשפארט. איר קענט נאכאלץ באצalen.</span>',
+      '    </p>',
+      '  </form>',
+      '</div>',
+    ].join('\n');
+    document.body.appendChild(modal);
+
+    var form = modal.querySelector('#dedication-form');
+    var amountInput = modal.querySelector('#dedication-amount');
+    var amountLabel = modal.querySelector('#dedication-amount-label');
+    var errorEl = modal.querySelector('.dedication-modal__error');
+    var pendingAmount = null;
+    var pendingUrl = DONATE_BASE;
+
+    function openModal(amount) {
+      pendingAmount = amount || null;
+      pendingUrl = donateUrl(amount);
+      amountInput.value = amount ? String(amount) : '';
+      amountLabel.textContent = amount ? ('$' + amount) : '';
+      var amountRow = modal.querySelector('.dedication-modal__amount');
+      if (amountRow) amountRow.hidden = !amount;
+      errorEl.classList.remove('is-visible');
+      modal.hidden = false;
+      document.body.classList.add('modal-open');
+      var nameInput = form.querySelector('[name="name"]');
+      if (nameInput) nameInput.focus();
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      document.body.classList.remove('modal-open');
+      form.reset();
+      errorEl.classList.remove('is-visible');
+    }
+
+    function goDonate() {
+      window.location.href = pendingUrl;
+    }
+
+    triggers.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var amount = link.getAttribute('data-donate-amount');
+        openModal(amount ? Number(amount) : null);
+      });
+    });
+
+    modal.querySelectorAll('[data-close]').forEach(function (el) {
+      el.addEventListener('click', closeModal);
+    });
+
+    modal.querySelector('[data-skip]').addEventListener('click', goDonate);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) closeModal();
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      errorEl.classList.remove('is-visible');
+      setSubmitLoading(form, true);
+
+      fetch('/api/dedication', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.assign(formDataToObject(form), {
+          lang: document.documentElement.getAttribute('lang') || 'en',
+        })),
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (body) {
+            if (!res.ok || !body.ok) throw new Error('save failed');
+          });
+        })
+        .then(goDonate)
+        .catch(function () {
+          errorEl.classList.add('is-visible');
+        })
+        .finally(function () {
+          setSubmitLoading(form, false);
+        });
+    });
+  }
+
   function boot() {
     initLang();
     initNav();
@@ -257,6 +492,8 @@
     initPartnerForm();
     initMailingForm();
     initTaxIdCopy();
+    initZmanimClock();
+    initDedicationModal();
   }
 
   if (document.readyState === 'loading') {
