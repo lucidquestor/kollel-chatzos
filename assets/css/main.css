@@ -325,6 +325,7 @@ body.lang-yi .stat .lab { max-width: 26ch; }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
 .section-header + .grid,
 .section-header + .tline { margin-top: 0; }
+.grid:has(.tier) { padding-top: 18px; }
 section.wrap > .grid:first-child,
 section.wrap > .lead-row:first-child,
 section.wrap > .panel:first-child { margin-top: 0; }
@@ -351,6 +352,7 @@ body.lang-yi .card h3 { font-size: 1.125rem; }
 body.lang-yi .card p { font-size: var(--text-base); line-height: 1.8; }
 .card p + p { margin-top: 10px; }
 .card .btn { margin-top: auto; align-self: flex-start; }
+.card.tier { overflow: visible; }
 .card.tier .btn { align-self: stretch; text-align: center; justify-content: center; }
 .card .heb { color: var(--gold-deep); font-family: var(--font-hebrew); font-size: var(--text-base); }
 
@@ -431,11 +433,27 @@ body.lang-yi .tline .when { font-family: var(--font-hebrew); font-size: clamp(1.
 .tier li { color: var(--ink-soft); padding: 7px 0; border-bottom: 1px dashed var(--line); }
 .tier li::before { content: "✦"; color: var(--gold); margin-inline-end: 10px; }
 .badge {
-  position: absolute; top: -13px; inset-inline-start: 50%; transform: translateX(-50%);
-  background: var(--gold); color: var(--brown-deep); font-size: .7rem; font-weight: 700;
-  padding: 4px 14px; border-radius: 999px; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap;
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: var(--gold);
+  color: var(--brown-deep);
+  font-size: .7rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 999px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
-body.lang-yi .badge { letter-spacing: 0; font-size: .66rem; }
+body.lang-yi .badge {
+  letter-spacing: 0;
+  font-size: .62rem;
+  padding-inline: 12px;
+  text-transform: none;
+}
 
 /* ---------- contact ---------- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 4vw, 48px); align-items: start; }
